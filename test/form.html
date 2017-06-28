@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>信息收集表</title>
+	<style>
+	body{
+		font-family: arial;
+	}
+		.layout{
+			width: 600px;
+			margin: 0 auto;
+		}
+		.container{
+			box-shadow: 0 4px 8px  0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+		.head{
+			color: #fff;
+			background: #009688;
+			margin-top: 20px;
+			margin-bottom: 0;
+			padding: 15px 15px;
+		}
+		form{
+            margin: 15px;
+		}
+        form>div{
+        	margin-top: 15px;
+        }
+        form>div label,.drink,.sex{
+        	opacity: 0.6;
+        }
+        #username,#QQ,#info{
+        	padding: 8px 0;
+        	border: none;
+        	border-bottom: 1px solid #ccc;
+        	width: 100%;
+        }
+        .choice .drink,.choice .sex{
+        	float: left;
+        }
+        .sex{
+        	padding-left:230px;
+        }
+        .choice:after{
+        	content: "";
+        	display: block;
+        	clear: both;
+        }
+        .submit>input{
+        	color: #fff;
+        	background: #009688;
+        	padding: 8px 16px;
+        	margin-bottom: 20px;
+        }
+	</style>
+</head>
+<body>
+	<div class="layout">
+	<div class="container">
+	    <h1 class="head">信息收集表</h1>
+		<form action="#" method="post">
+		   <div class="username">
+			<label for="username">姓名</label><br>
+			<input type="text" name="username" id="username">
+		</div>
+
+		<div class="QQ">
+			<label for="QQ">QQ</label><br>
+			<input type="text" name="QQ" id="QQ">
+		</div>
+
+		<div class="info">
+			<label for="info">想说的话</label><br>
+			<textarea name="info" id="info" cols="30" rows="10"></textarea>
+		</div>
+
+        <div class="choice">
+		   <div class="drink">
+			   <input type="checkbox" name="drink" value="milk" checked>Milk<br>
+			   <input type="checkbox" name="drink" value="sugar">Sugar <br>
+			   <input type="checkbox" name="drink" value="lemon">Lemon
+		   </div>
+		   <div class="sex">
+			   <input type="radio" name="sex" value="male" checked>Male <br>
+			   <input type="radio" name="sex" value="female">Female
+		   </div>
+        </div>
+
+		<div class="submit">
+			<input type="submit" value="提交">
+			</div>
+        </div>
+
+		</form>
+	</div>
+</body>
+</html>

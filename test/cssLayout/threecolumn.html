@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>threeColumn</title>
+<style>
+  .container:after{
+  	content: "";
+  	display: block;
+  	clear: both;
+  }
+  
+ .aside{
+ 	width: 100px;
+ 	height: 500px;
+ 	background: lightpink;
+    float: left;
+ }
+ .extra{
+ 	width: 100px;
+ 	height: 500px;
+ 	background: lightgray;
+ 	float: right;
+ }
+ .main{
+ 	height: 400px;
+ 	background: lightblue;
+ 	margin-left: 110px;
+ 	margin-right: 110px;
+ }
+ .footer{
+ 	height: 50px;
+ 	background: lightgreen;
+ }
+</style>
+</head>
+
+<body>
+<div class="container">
+	<div class="aside">aside</div>
+	<div class="extra">extra</div>
+	<div class="main">main</div>
+</div>
+<div class="footer">footer</div>
+</body>
+
+</html>

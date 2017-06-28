@@ -1,0 +1,215 @@
+	@font-face {
+            font-family: 'iconfont';  /* project id 295199 */
+            src: url('//at.alicdn.com/t/font_6u6wlcx3unrhehfr.eot');
+            src: url('//at.alicdn.com/t/font_6u6wlcx3unrhehfr.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_6u6wlcx3unrhehfr.woff') format('woff'),
+            url('//at.alicdn.com/t/font_6u6wlcx3unrhehfr.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_6u6wlcx3unrhehfr.svg#iconfont') format('svg');
+        }
+        .iconfont{
+            font-family:"iconfont" !important;
+            font-size:16px;font-style:normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+            -moz-osx-font-smoothing: grayscale;
+        }
+	.layout {
+		width: 960px;
+		margin: 80px auto;
+		border: 1px solid #ccc;
+		box-shadow: 0 4px 8px  0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	}
+	.layout:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	/*头像姓名信息栏*/
+	.info {
+		padding: 30px 0 30px 30px;
+	}
+	.info:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	/*头像部分*/
+	.userphoto {
+	  		float: left;
+			position: relative;
+			width: 200px;
+		    height: 200px;
+		    border: 1px solid;
+		    background: #000;
+		    border-radius: 50%;
+		    transform: rotate(135deg);
+		}
+	.userphoto hr{
+			margin-top: 50%;
+			width: 70%;
+	       border: 2px solid #fff;
+		}
+	.userphoto .z{
+			color: #fff;
+			font-size: 32px;
+			font-weight: bold;
+			position: absolute;
+			left: 100px;
+			top: 130px;
+			transform: rotate(-135deg);
+		}
+	.userphoto .f{
+			color: #fff;
+			font-size: 32px;
+			font-weight: bold;
+			position: absolute;
+			right: 100px;
+			bottom: 120px;
+			transform: rotate(-135deg);
+		}
+	 /*姓名职位部分*/
+	.name {
+	  	margin-left: 260px;
+	  	margin-right: 400px;
+	  	padding: 30px 0;
+	  }
+	 .name h1 {
+	    font-size: 32px;
+	    font-weight: normal;
+	    margin-bottom: 10px;
+	 }
+	 .name h2 {
+	    font-size: 20px;
+	    font-weight: bold;
+	 }
+	 /* 联系方式部分*/
+	 .contact {
+	 	width: 400px;
+	 	float: right;
+	 }
+	 .contact h2 {
+	 	font-size: 20px;
+	 	border-bottom: 5px solid ;
+	 	padding-bottom: 10px;
+	 }
+	 ul li {
+	 	list-style: none;
+	 	font-size: 16px;
+	 	margin-top: 20px;
+	 	opacity: 0.9;
+	 }
+	 .contact ul li:first-letter {
+	 	font-weight: bold;
+	 }
+    /*工作经验和教育栏*/
+    .work,.edu {
+    	padding: 40px;
+    }
+    .work>h1,.edu>h1{
+    	font-size: 20px;
+    }
+    .work>hr,.edu>hr {
+    	display: inline-block;
+    	width: 60%;
+    	text-align: left;
+    }
+    .work>ul,.edu>ul {
+    	border-left: 1px solid #ccc;
+    	padding-left: 50px;
+    	position: relative;
+    }
+    .job li:before {
+    	content: "";
+    	display: inline-block;
+    	width: 10px;
+    	height: 10px;
+    	background: #000;
+    	border-radius: 50%;
+    	position: absolute;
+    	left: -5px;
+    }
+    .university li:before {
+    	content: "";
+    	display: inline-block;
+    	width: 10px;
+    	height: 10px;
+    	background: #000;
+    	border-radius: 50%;
+    	position: absolute;
+    	left: -5px;
+    }
+     .footer{
+            overflow: hidden;
+        }
+      .extra {
+            width: 400px;
+            float: left;
+            padding:40px;
+        }
+        .extra > ul{
+            margin-top: 20px;
+
+        }
+        .extra > ul > li{
+           /*  text-align: justify; */
+            overflow: hidden;
+            position: relative;
+        }
+        .extra > ul > li:last-child {
+            margin-top: 20px;
+        }
+        .extra li p{
+            margin-left: 50px;
+        }
+        .extra li p:first-of-type {
+            margin-bottom: 10px;
+        }
+        .extra h3,
+        .skills h3 {
+            width: 400px;
+            font-size: 18px;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #ccc;
+        }
+        .skills {
+            width: 400px;
+            float: right;
+            overflow: hidden;
+            padding:40px;
+        }
+        .skills ul {
+            margin-top: 20px;
+        }
+        .skills ul>li{
+            width: 150px;
+            float: left;
+            margin-bottom: 80px;
+            margin-left: 10px;
+            font-weight: bold;
+            position: relative;
+        }
+        .skills ul>li span {
+            margin-left: 30px;
+            font-size: 17px;
+        }
+        .extra ul li:before {
+            font-family:'iconfont';
+            content: '\e6e0';
+            display: block;
+            position: absolute;
+            font-size: 23px;
+            top: 15px;
+            left: 0;
+        }
+        .skills ul li:before {
+            font-family:'iconfont';
+            content: '\e6e0';
+            display: block;
+            position: absolute;
+            font-size: 23px;
+            top: 0;
+            left: 0;
+        }
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAXdemo</title>
+	<style>
+   * {
+	padding: 0;
+	margin: 0;
+    font-size: 20px;
+    }
+    body {
+    	padding: 10px;
+    }
+     li {
+     	list-style: none;
+     	border: 1px solid #ccc;
+     	line-height: 2;
+     	margin-top: 10px;
+     	cursor: pointer;
+     }
+     #btn {
+     	display: block;
+     	width: 100px;
+     	padding: 5px;
+     	margin: 10px auto;
+     	border: 1px solid #E27272;
+     	border-radius: 3px;
+     	color: #E27272;
+     	text-decoration: none;
+     	text-align: center;
+     }
+     li:hover {
+     	background: green;
+     }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="list">
+			<li>内容1</li>
+			<li>内容2</li>
+		</ul>
+		<a href="javascript:;" id="btn">加载更多</a>
+	</div>
+
+ <script src="jquery-3.2.1.min.js"></script>
+    <script>
+
+  /*  原生js 
+    var btn = document.querySelector('#btn');
+     var list= document.querySelector('.list');
+     var page = 0;
+     var isDataArrive =true;
+
+     btn.onclick = function(){
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {
+            if (!isDataArrive) {
+                return;
+            };
+            if (req.readyState === 4) {
+                if (req.status===200 || req.status===304) {
+                   var result = JSON.parse(req.responseText)
+                    var fragment=document.createDocumentFragment();
+                for (var i = 0; i < result.length; i++) {
+                  var node=document.createElement('li');
+                      node.innerText= result[i]   
+                      fragment.appendChild(node);  
+                };
+                list.appendChild(fragment);
+                page+=5;
+                }else {
+                    alert('出错了')
+                }
+                isDataArrive=true;
+            };
+        }
+        req.open('get','/loadmore?page='+page+'&length=5');
+        req.send();
+         isDataArrive=true
+     }
+     */
+
+/*-------------------------------------------jQuery方法----------------------------------------*/
+ var $btn = $('#btn')
+ var $list= $('.list')
+ var page = 0; 
+ $btn.on('click',function() {
+   $.ajax({
+       url:'/loadmore',
+       method:'get',
+       data:{
+          page: page,
+          length: 5
+       }
+   }).done(function(res){
+     if (res.status===0) {
+        show(res.data)
+    } else {
+        alert('加载数据错了')
+    }
+   }).fail(function(){
+       alert('系统异常')
+ })
+     
+    })
+
+function show(news) {
+        for (var i = 0; i < news.length; i++) {
+        var $node=$('<li></li>');
+            $node.text( news[i] ) 
+            $list.append($node);
+        };       
+        page+=5;
+ 
+}
+   </script>
+</body>
+</html>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Display</title>
+<style>
+	body {
+	background: #fff2e3;
+	color: #87968e;
+	font-size: 14px;
+}
+.container {
+	width: 600px;
+	margin: 0 auto;
+	text-align: center;
+}
+.container>h1,.container>p {
+	color: #ccc;
+	margin-top: 30px;
+}
+h1{
+	font-size: 42px;
+}
+ul {
+	display: inline-block;
+	list-style: none;
+	overflow: hidden;
+	margin: 30px 0;
+}
+ul li {
+	background: #72b890;
+	border-radius: 3px;
+	float: left;
+	margin-right: 10px;
+
+}
+.btn li a {
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	padding: 6px 14px;
+}
+.author a {
+	color: #72b890;
+	text-decoration: none;
+}
+.container p.author {
+	margin-top: 10px;
+}
+li:hover {
+ opacity: .6;
+}
+li.active {
+	opacity: .6;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>我的项目</h1>
+		<p>一句话项目介绍</p>
+		<ul class="btn">
+			<li class="active"><a href="#">项目1</a></li>
+			<li><a href="#">项目2</a></li>
+			<li><a href="#">项目3</a></li>
+			<li><a href="#">项目4</a></li>
+			<li><a href="#">项目5</a></li>
+		</ul>
+		<div class="pic">
+			<img src="http://7xpvnv.com2.z0.glb.qiniucdn.com/65d4aba2-a097-4b24-aaa0-ebbaf7eedab2" alt="pic">
+		</div>
+		<ul class="bottom-btn btn">
+			<li><a href="#">查看源码</a></li>
+			<li><a href="#">使用说明</a></li>
+		</ul>
+		<p class="author">作者：<a href="#">Mac zhang</a></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.container {
+	background-image: url('../images/sun.jpg');
+	width: 420px;
+	height: 630px;
+	margin: 50px auto;
+}
+.left>.search {
+	padding: 10px ;
+}
+.left>.search>.citySearch {
+	width: 100px;
+	height: 30px;
+	border-radius: 5px;
+}
+.left>.search>.btn {
+	width: 60px;
+	line-height: 30px;
+	border-radius: 5px;
+}
+.left .iconfont {
+	float: left;
+	display: inline-block;
+	font-size: 4em;
+	color: red;
+	padding: 10px;
+}
+.left>.location>.cityInfo .wrap {
+	float: left;
+}
+.left>.location>.cityInfo h1 {
+	height: 50px;
+	width: 100px;
+}
+.left>.location>.cityInfo p {
+	height: 30px;
+	width: 120px;
+	color: #fff;
+	font-size: 22px;
+	margin-left: -10px;
+}
+
+
+
+
+
+
+
+
+
+.clearfix:after {
+   content: '';
+   display: block;
+   clear: both;
+}

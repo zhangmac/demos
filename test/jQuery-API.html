@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+  <style>
+  .wrap {
+    border: 1px solid;
+    margin-top: 50px ;
+    padding: 20px;
+  }
+  .wrap>p {
+    font-size: 20px;
+  }
+  .box2 {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  </style>
+</head>
+<body>
+
+<div class="box1 wrap">
+<p>当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色</p>
+  <button class="btn">Change Color</button>
+</div>
+<div class="wrap">
+<p>当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色</p>
+ <div class="box2"></div>
+</div>
+<div class="box3 wrap">
+<p>当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字</p>
+  <input type="text" class="ipt">
+</div>
+<div class="box4 wrap">
+<p>当选择 select 后，获取用户选择的内容</p>
+  <select name="hobby" id="hobby" >
+    <option value="读书">读书</option>
+    <option value="看电影">看电影</option>
+    <option value="玩游戏">玩游戏</option>
+  </select>
+      <p></p>
+</div>
+<div class="box5 wrap">
+  <p>当窗口滚动时，获取垂直滚动距离:</p>
+  <span></span>
+</div>
+
+
+
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+/*当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色*/   
+   $('.btn').on('click',function() {
+    $(this).css('background-color','red')
+    setTimeout(function() {
+    $('.btn').css('background-color','blue')
+    },1000)
+   })
+/*当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色*/  
+   $('.box2').on('mouseover',function(){
+    $(this).css('background-color','red')
+   })
+    $('.box2').on('mouseout',function(){
+    $(this).css('background-color','#fff')
+   })
+/*当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字*/
+   $('.box3>.ipt').on('focus',function() {
+    $(this).css('border-color','blue')
+   })
+    $('.box3>.ipt').on('keyup',function() {
+    var str = $(this).val().toUpperCase()
+     $(this).val(str)
+   })
+   $('.box3>.ipt').on('blur',function() {
+    $(this).css('border-color','initial')
+    console.log($(this).val())
+    $(this).val('')
+   })
+/*当选择 select 后，获取用户选择的内容*/
+  $('#hobby').on('change',function(){
+    $('.box4 p').text('我的爱好是：'+ $(this).val())
+  })
+/*当窗口滚动时，获取垂直滚动距离*/
+$('.box5 span').text($(window).scrollTop())
+ $(window).on('scroll',function() {
+  $('.box5 span').text($(window).scrollTop())
+ })
+</script>
+</body>
+</html>

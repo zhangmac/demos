@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JSONP</title>
+	<style>
+		.container {
+			max-width: 300px;
+			margin: 30px auto;
+			border: 1px solid #ccc;
+			box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+		}
+		ul {
+			padding: 0;
+		}
+		li {
+			padding: 20px;
+			list-style: none;
+			border-bottom: 1px solid #ccc;
+		}
+        #change {
+            margin:20px;
+            line-height: 1.5;
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<ul class="muiscList">
+			<li>这世界只有你明白我</li>
+			<li>啷个哩个啷</li>
+			<li>shape of you</li>
+			<li>where'd you go</li>
+			<li>苍浪剑赋</li>
+		</ul>
+		<button id="change">换一批</button>
+	</div>
+
+	<script>
+		function $(id) {
+			return document.querySelector(id)
+		}
+        
+       $('#change').addEventListener('click',function(){
+           var req = new XMLHttpRequest()
+           req.onreadystatechange = function() {
+             if (req.readyState===4 && req.status===200) {
+             	show(JSON.parse(req.responseText))
+             }
+           }
+           req.open('get','http://localhost:8080/getMusic')
+           req.send()
+       })
+
+        function show(callback) {
+        	var html = ''
+        	for (var i = 0; i < callback.length; i++) {
+        		html +='<li>'+callback[i]+'</li>'
+        	}
+            $('.muiscList').innerHTML = html 
+        }
+	</script>
+</body>
+</html>

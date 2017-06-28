@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>reg</title>
+<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+/*写一个函数trim(str)，去除字符串两边的空白字符*/
+function trim(str) {
+  return str.replace(/^\s+|\s+$/g, '')
+}
+ /*写一个函数isEmail(str)，判断用户输入的是不是邮箱*/
+function isEmail(str) {
+  var reg = /\w+@.+/;
+     return reg.test(str);
+}
+/*写一个函数isPhoneNum(str)，判断用户输入的是不是手机号*/
+function isPhoneNum(str) {
+	var reg = /^1\d{10}$/g;
+		return reg.test(str);
+
+}
+/*console.log(isPhoneNum('123465716685'))*/
+
+/*写一个函数isValidUsername(str)，判断用户输入的是不是合法的用户名（长度6-20个字符，只能包括字母、数字、下划线）*/
+function isValidUsername(str) {
+	var reg = /^\w{6,20}$/g
+	return reg.test(str);
+}
+
+/* 写一个函数isValidPassword(str), 判断用户输入的是不是合法密码（长度6-20个字符，只包括大写字母、小写字母、数字、下划线，且至少至少包括两种）*/
+function isValidPassword(str) {
+	if(!/^[\w]{6,20}$/.test(str)) return false;
+    if(/^[A-Z]{6,20}$/.test(str)) return false;
+    if(/^[a-z]{6,20}$/.test(str)) return false;
+    if(/^[0-9]{6,20}$/.test(str)) return false;
+    if(/^_{6,20}$/.test(str)) return false;
+    return true;
+}
+/*题目7： 写一个正则表达式，得到如下字符串里所有的颜色*/
+
+var reg = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3}$)/g
+var subj = "color: #121212; background-color: #AA00ef; width: 12px; bad-colors: f#fddee "
+console.log( subj.match(reg) )  // ['#121212', '#AA00ef']
+
+
+/*题目8： 下面代码输出什么? 为什么? 改写代码，让其输出[""hunger"", ""world""]*/
+var str = 'hello  "hunger" , hello "world"';
+var pat =  /".*"/g;
+str.match(pat);//["hunger", hello "world"]
+
+ </script>
+</body>
+</html>

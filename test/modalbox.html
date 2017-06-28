@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>modal box</title>
+	<style>
+		body,h1{
+			margin: 0;
+			font-family: arial;
+		}
+		.container{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background: rgba(0,0,0,0.4);
+			text-align: center;
+		}
+		.header{
+			width: 400px;
+			position: absolute;
+        	left: 50%;
+        	margin-left: -400px;
+		}
+		.header>h1{
+			font-weight: bold;
+			margin-top: 20px;
+		}
+        .alert{
+        	width: 600px;
+        	height: 240px;
+        	position: absolute;
+        	left: 50%;
+        	top: 50%;
+        	margin-left: -300px;
+        	margin-top: -120px;
+        	text-align: left;
+        	box-shadow: 0 4px 8px  0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .alert>h1{
+            color: #fff;
+            background: #009688;
+            padding: 20px 10px;
+        }
+        .content>p{
+        	background: #fff;
+        	margin: 0;
+        	padding: 16px 10px;
+        }
+        .quit{
+        	color: #fff;
+        	font-weight: bolder;
+        	font-size: 20px;
+        	position: absolute;
+        	right: 10px;
+        	top: 10px;
+        	cursor: pointer;
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+	   <div class="header">
+	   	 <h1>这是页面内容</h1>
+	     <h1>这是页面内容</h1>
+	     <h1>这是页面内容</h1>
+	     <h1>这是页面内容</h1>
+	   </div>
+		<div class="alert">
+			<h1>头部</h1>
+		 <div class="content">
+			<p>这是内容</p>
+			<p>这是内容</p>
+		 </div>
+			<h1>尾部</h1>
+			<span class="quit">X</span>
+		</div>
+	</div>
+</body>
+</html>

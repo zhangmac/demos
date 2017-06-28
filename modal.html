@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>modal</title>
+<meta charset="utf-8">
+<style>
+.ct {
+  display: none;
+}
+ .cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+} 
+.modal {
+  position: fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  width: 500px;
+  height: 210px;
+  border: 1px solid ;
+}
+.modal .head {
+  padding-bottom: 20px;
+  border-bottom: 1px solid ;
+}
+.modal .content {
+  border-bottom: 1px solid ;
+}
+.modal .cancel,.modal .comfirm {
+  margin-left: 350px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.modal .comfirm {
+  margin-left: 10px;
+}
+.modal .close {
+  float: right;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+.show {
+  display: block;
+}
+</style>
+</head>
+
+<body>
+<div class="modal-btn">
+  <input type="button" class="button" value="点我">
+</div>
+<div class="ct">
+ <div class="cover"></div>
+ <div class="modal">
+     <a href="#" class="close">X</a>
+     <h2 class="head">我是标题1</h2>
+     <div class="content">
+       <p>我是内容1</p>
+       <p>我是内容2</p> 
+     </div>
+     <input type="button" class="cancel" value="取消">
+     <input type="button" class="comfirm" value="确定">
+ </div>
+</div>
+<script>
+  var showBtn = document.querySelector('.button')
+  var modal = document.querySelector('.modal')
+  var closeBtn = document.querySelector('.close')
+  var ct = document.querySelector('.ct')
+
+  showBtn.addEventListener('click',function(){
+    ct.classList.add('show')
+  })
+  closeBtn.addEventListener('click',function(){
+    ct.classList.remove('show')
+  })
+  ct.addEventListener('click',function(){
+    ct.classList.remove('show')
+  })
+  modal.addEventListener('click',function(e){
+    e.stopPropagation()
+  })
+</script>
+</body>
+</html>
