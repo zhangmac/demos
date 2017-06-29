@@ -176,6 +176,7 @@
 	}
   
   	var $btn = $('.btn')
+  	var $search = $('.citySearch')
   	$btn.on('click',function(){
   	 $cityName= $('.citySearch').val()
       $.ajax({
@@ -192,11 +193,15 @@
         } else {
         	alert('请输入正确的城市名')//这儿的输入错误的城市名无法alert，麻烦老师帮忙看一下~
         }
-		
-        
 	}).fail(function(){
 		alert('系统异常')
 	})
+
+		$search.on('keydown',function() {
+			if (event.keyCode==13) {
+				$btn.click();
+			}
+		})
 
   	})
 
