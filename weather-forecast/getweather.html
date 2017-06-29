@@ -176,7 +176,6 @@
 	}
   
   	var $btn = $('.btn')
-  	var $search = $('.citySearch')
   	$btn.on('click',function(){
   	 $cityName= $('.citySearch').val()
       $.ajax({
@@ -196,14 +195,15 @@
 	}).fail(function(){
 		alert('系统异常')
 	})
+  	})
 
-		$search.on('keydown',function() {
+  	var $search = $('.citySearch')
+  	$search.on('keydown',function() {
 			if (event.keyCode==13) {
-				$btn.click();
+				$btn.click()
+				return false;
 			}
 		})
-
-  	})
 
 </script>
 </body>
