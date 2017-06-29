@@ -96,7 +96,7 @@
 <script src="jquery-3.2.1.min.js"></script>
 <script>
 	$.ajax({
-		url:'//jirenguapi.applinzi.com/weather.php',
+		url:'https://jirenguapi.applinzi.com/weather.php',
 		method:'get'
 	}).done(function(ret){
 		var res = JSON.parse(ret)
@@ -179,7 +179,7 @@
   	$btn.on('click',function(){
   	 $cityName= $('.citySearch').val()
       $.ajax({
-		url:'//jirenguapi.applinzi.com/weather.php',
+		url:'https://jirenguapi.applinzi.com/weather.php',
 		method:'get',
 		data: {
 			city: $cityName
