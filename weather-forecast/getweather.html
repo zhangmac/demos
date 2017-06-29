@@ -7,85 +7,201 @@
 	<link rel="stylesheet" href="font/iconfont.css">
 </head>
 <body>
- <div class="container">
+ <div class="container clearfix">
+
  	<div class="left">
+
  	    <div class="search">
- 			<input type="text" class="citySearch" > 
+ 			<input type="text" class="citySearch" placeholder="输入您所在城市"> 
  			<button class="btn">查询</button>
  	    </div>
  		<div class="location">
  			<div class="cityInfo clearfix">
  				<span class='icon-location iconfont'></span>
  				<div class="wrap">
- 				    <h1></h1>
- 				    <p></p>
+ 				  <h1></h1>
+ 				  <p></p>
  				</div>
- 			</div>
- 			
+ 			</div> 			
  		</div>
- 		<div class="todayWeather"></div>
- 		<div class="tip"></div>
- 		<div class="essay">
- 			<p></p>
+
+ 		<div class="todayWeather">
+ 			<p class="date"></p>
+ 			<img src="" alt="" class="pic-url">
+ 			<span class="temp"></span>
+ 			<span class="weather"></span>
+ 			<span class="wind"></span>
+ 		</div>
+
+ 		<div class="tips">
+ 			<ul>
+ 				<li>
+ 				  <span class="iconfont icon-chuanyizhishu"></span>
+ 				  <span class="tipt"></span>
+ 				  <span class="zs"></span>
+ 				  <p class="des"></p>
+ 				</li>
+ 				<li>
+ 				  <span class="iconfont icon-xiche"></span>
+ 				  <span class="tipt"></span>
+ 				  <span class="zs"></span>
+ 				  <p class="des"></p>
+ 				</li>
+ 				<li>
+ 				  <span class="iconfont icon-sick"></span>
+ 				  <span class="tipt"></span>
+ 				  <span class="zs"></span>
+ 				  <p class="des"></p>
+ 				</li>
+ 				<li>
+ 				  <span class="iconfont icon-sports"></span>
+ 				  <span class="tipt"></span>
+ 				  <span class="zs"></span>
+ 				  <p class="des"></p>
+ 				</li>
+ 				<li>
+ 				  <span class="iconfont icon-ziwaixianqiangdu"></span>
+ 				  <span class="tipt"></span>
+ 				  <span class="zs"></span>
+ 				  <p class="des"></p>
+ 				</li>
+ 			</ul>
  		</div>
  	</div>
- 	<div class="right">
- 		<div>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		   </div>
- 		<div>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		</div>
- 		<div>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		  <span></span>
- 		</div>
+  	<div class="right">
+ 		<ul class="sencondDay">
+ 			<li></li>
+ 			<li><img src=""></li>
+ 			<li></li>
+ 			<li></li>
+ 			<li></li>
+ 		</ul>
+ 		<ul class="thirdDay">
+ 			<li></li>
+ 			<li><img src=""></li>
+ 			<li></li>
+ 			<li></li>
+ 			<li></li>
+ 		</ul>
+ 		<ul class="fourthDay">
+ 			<li></li>
+ 			<li><img src=""></li>
+ 			<li></li>
+ 			<li></li>
+ 			<li></li>
+ 		</ul>
  	</div>
+
+
  </div>
 	
 <script src="jquery-3.2.1.min.js"></script>
 <script>
-    var time =''
-    var mydate = new Date()
-    var years = mydate.getFullYear()
-    var months = mydate.getMonth()+1
-    var days = mydate.getDate()
-    time += years+'-'+months+'-'+days
 	$.ajax({
-		url:'http://jirenguapi.applinzi.com/city.php',
+		url:'http://jirenguapi.applinzi.com/weather.php',
 		method:'get'
 	}).done(function(ret){
-		$('.cityInfo>.wrap h1').text(ret).css('color','#fff')
-		$('.cityInfo>.wrap p').text(time)
-	}).fail(function() {
-		alert('获取城市信息失败')
+		var res = JSON.parse(ret)
+        var data = res.results[0]
+        $('.cityInfo>.wrap p').text(res.date)
+	    show(data)
+		}).fail(function(){
+			alert('获取城市信息失败')
+		})
+    
+    var $date = $('.todayWeather>.date')
+    var $img = $('.todayWeather>.pic-url')
+    var $temp = $('.todayWeather>.temp')
+    var $weather = $('.todayWeather>.weather')
+    var $wind = $('.todayWeather>.wind')
+    var $li = $('.tips>ul>li')
+    var $tipt =$('.tips .tipt')
+    var $zs =$('.tips .zs')
+    var $des =$('.tips .des')
+    var $moveP = $('.tips>ul>li>p')
+
+    var $cityName= $('.citySearch').val()
+	function show(data) {
+		$('.cityInfo>.wrap h1').text(data.currentCity)
+		var currentDate = data.weather_data[0].date
+		var newdate = currentDate.split(' ')
+		    newdate.splice(1,1)
+		$date.text(newdate) //获取日期和实时温度
+		var myDate = new Date();
+		var hours = myDate.getHours();
+        if (hours<18) {
+        	var pictureUrl = data.weather_data[0].dayPictureUrl
+        } else {
+        	var pictureUrl = data.weather_data[0].nightPictureUrl
+        } 
+        $img.attr('src',pictureUrl)  //根据当前时间加载白天或是夜晚的图片
+        
+        $temp.text(data.weather_data[0].temperature)
+        $weather.text(data.weather_data[0].weather)
+        $wind.text(data.weather_data[0].wind)// 加载温度、风向、天气等信息          
+       for (var i = 0; i < $tipt.length; i++) {
+        	var indexTipt = data.index[i].tipt 
+        	$tipt.eq(i).text(indexTipt+':')
+        }
+        for (var i = 0; i < $zs.length; i++) {
+        	var indexZs = data.index[i].zs 
+        	$zs.eq(i).text(indexZs)
+        }
+         for (var i = 0; i < $des.length; i++) {
+        	var indexDes = data.index[i].des 
+        	$des.eq(i).text(indexDes) //获取各种指数信息
+        }
+        $li.on('mouseover',function() {
+        	$(this).find($moveP).show();
+        })
+        $li.on('mouseout',function() {
+        	$(this).find($moveP).hide();//当移动列表上的时候，展示文字介绍
+        })
+	   var $forecast = $('.right>ul')
+	   for (var i = 0; i < $forecast.length; i++) {
+	   	if (hours<18) {
+        	var foreUrl = data.weather_data[i+1].dayPictureUrl
+        } else {
+        	var foreUrl = data.weather_data[i+1].nightPictureUrl
+        } 
+         $forecast.eq(i).find('li').eq(0).text(data.weather_data[i+1].date)
+         $forecast.eq(i).find('li').eq(1).find('img').attr('src',foreUrl)
+         $forecast.eq(i).find('li').eq(2).text(data.weather_data[i+1].temperature)
+         $forecast.eq(i).find('li').eq(3).text(data.weather_data[i+1].weather)
+         $forecast.eq(i).find('li').eq(4).text(data.weather_data[i+1].wind)
+	   } //获取明后天天气预报
+
+
+	   if (data.weather_data[0].weather==='多云') {
+	   	$('.container').css('background-image','url(images/cloud.jpg)')//根据天气换背景
+	   }
+	}
+  
+  	var $btn = $('.btn')
+  	$btn.on('click',function(){
+  	 $cityName= $('.citySearch').val()
+      $.ajax({
+		url:'http://jirenguapi.applinzi.com/weather.php',
+		method:'get',
+		data: {
+			city: $cityName
+		}
+	}).done(function(ret){
+		var res = JSON.parse(ret)
+        var data = res.results[0]
+		if (res.error===0 && res.status==='success') {
+            show(data)	
+        } else {
+        	alert('请输入正确的城市名')//这儿的输入错误的城市名无法alert，麻烦老师帮忙看一下~
+        }
+		
+        
+	}).fail(function(){
+		alert('系统异常')
 	})
 
-	var $btn = $('.btn')
-	$btn.on('click',function() {
-		var $cityName= $('.citySearch').val()
-		$.ajax({
-			url:'http://jirenguapi.applinzi.com/weather.php',
-			method:'get',
-			data: {
-				city: $cityName
-			}
-		}).done(function(ret){
-			var data = JSON.parse(ret)
-		})
-	})
+  	})
+
 </script>
 </body>
 </html>

@@ -7,6 +7,12 @@
 	width: 420px;
 	height: 630px;
 	margin: 50px auto;
+	box-shadow: 2px 2px 3px 2px rgba(0,0,0,0.3)
+}
+.left {
+	width: 60%;
+	float: left;
+	margin: 10px 0 0 20px;
 }
 .left>.search {
 	padding: 10px ;
@@ -15,13 +21,15 @@
 	width: 100px;
 	height: 30px;
 	border-radius: 5px;
+	/*margin-left: 10px;*/
 }
 .left>.search>.btn {
 	width: 60px;
 	line-height: 30px;
 	border-radius: 5px;
+	margin-left: 20px;
 }
-.left .iconfont {
+.cityInfo .iconfont {
 	float: left;
 	display: inline-block;
 	font-size: 4em;
@@ -30,26 +38,79 @@
 }
 .left>.location>.cityInfo .wrap {
 	float: left;
+	margin-top: 5px;
 }
 .left>.location>.cityInfo h1 {
 	height: 50px;
 	width: 100px;
+	color: #fff;
 }
 .left>.location>.cityInfo p {
 	height: 30px;
-	width: 120px;
+	width: 123px;
 	color: #fff;
 	font-size: 22px;
 	margin-left: -10px;
 }
+/* 今日天气信息 */
+.todayWeather {
+	width: 180px;
+	height: 180px;
+	margin-left: 20px;
+	text-align: center;
+}
+.todayWeather>.date {
+	color: #fff;
+	font-size: 20px;
+	margin-top: 20px;
+}
+.todayWeather>.pic-url {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.todayWeather>span {
+	display: block;
+	color: #fff;
+}
+/* 小提示部分 */
+.tips>ul>li {
+	list-style: none;
+	padding-left: 10px;
+	margin-top: 10px;
+	color: #fff;
+	cursor: pointer;
+}
+ .tips {
+	width: 300px;
+	margin-top: -10px;
+} 
+.tips .iconfont {
+	font-size: 30px;
+	color: #fff;
+}
+.tips>ul>li>p {
+	display: none;
+}
 
+.tips .icon-sports {
+	margin-left: -12px;
+}
 
-
-
-
-
-
-
+.right {
+	width: 30%;
+	float: right;
+}
+.right>ul {
+	list-style: none;
+	margin: 30px 20px 0 10px ;
+    text-align: center;
+    color: #fff;
+}
+.right>ul>li {
+	margin-top: 10px;
+}
 
 .clearfix:after {
    content: '';
