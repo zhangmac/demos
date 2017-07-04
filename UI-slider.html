@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Carousel</title>
+  <style>
+ body {
+  padding: 10px;
+ }
+ ul,li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+ }
+ .slider {
+  position: relative;
+  width: 300px;
+  height: 204px;
+  overflow: hidden;
+ }
+ .img-ct {
+  width: 1200px;
+  position: absolute;
+ }
+ .img-ct>li {
+   float: left;
+ }
+ .arrow {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  top: 50%;
+  margin-top: -15px;
+  z-index: 1;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  display: none;
+  cursor: pointer;
+ }
+ .pre {
+  left: 10px;
+ }
+ .next {
+  right: 10px;
+ }
+ .sliderbar {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+ }
+ .sliderbar>li {
+  display: inline-block;
+  width: 30px;
+  height: 6px;
+  z-index: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+ }
+ .sliderbar>li.active {
+  background: #fff;
+ }
+  </style>
+</head>
+<body>
+ <div class="slider">
+   <ul class="img-ct">
+     <li data-id=0><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/02/HD-wallpapers-1920x1080-Image-2-300x200.jpg" alt="image"></a></li>
+     <li data-id=1><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/hd-wallpaper-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li data-id=2><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/wallpaper-hd-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li data-id=3><a href="javascript:;"><img src="http://www.pinkandblue.in/wp-content/uploads/2017/02/pink-and-blue-happy-hug-day-dps-whatsapp-facebook-image-300x200.jpg" alt="image"></a></li>
+   </ul>
+   <a href="javascript:;" class="pre arrow"><</a>
+   <a href="javascript:;" class="next arrow">></a>
+   <ul class="sliderbar">
+     <li class="active"></li>
+     <li></li>
+     <li></li>
+     <li></li>
+   </ul>
+ </div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+window.onload = function() {
+  var $slider = $('.slider')
+  var $arrow = $('.arrow')
+  var $ct = $('.img-ct')
+  var $imgs = $('.img-ct > li')
+  var imgWidth = $imgs.eq(0).width()
+  var $preBtn = $('.pre')
+  var $nextBtn = $('.next')
+  var count =0
+  var $bar = $('.sliderbar>li')
+  var isAnimate = false
+
+  $slider.on('mouseenter',function(){
+    $arrow.show();
+  })
+  $slider.on('mouseleave',function(){
+    $arrow.hide();
+  })//鼠标放置在图片上显示左右箭头
+
+  $ct.append($imgs.eq(0).clone())
+  $ct.prepend($imgs.eq(3).clone())
+  $ct.width(($imgs.length+2)*imgWidth)
+  $ct.css({left:-imgWidth})
+  $preBtn.on('click',function() {
+    playPre()
+  })
+  $nextBtn.on('click',function() {
+    playNext()
+  })   
+   function playPre() {
+     if (isAnimate) return;
+     isAnimate = true
+     $ct.animate({left:'+='+imgWidth},function(){
+      count--
+     if (count < 0) {
+      $ct.css({left:-imgWidth*$imgs.length})
+      count=$imgs.length-1
+    }
+    barMove(count)
+    isAnimate = false
+    })  
+  }
+  function playNext() {
+     if (isAnimate) return;
+     isAnimate = true
+     $ct.animate({left:'-='+imgWidth},function(){
+      count++
+      if (count===$imgs.length) {
+      $ct.css({left:-imgWidth})
+      count=0    
+    }
+    barMove(count)
+    isAnimate = false
+    })  
+  }//图片位移
+ $bar.each(function() {
+  $(this).on('click',function() {
+    var pageIndex = $(this).index()
+    $ct.animate({left:-imgWidth*(pageIndex+1)})
+    barMove(pageIndex)
+  })
+ })
+function barMove(count) {
+    $bar.eq(count).addClass('active')
+    $bar.eq(count).siblings().removeClass('active')
+  }
+
+
+
+}
+</script>
+</body>
+</html>
