@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Carousel</title>
+  <meta charset="UTF-8">
+  <title>Carousel</title>
   <style>
  body {
   padding: 10px;
@@ -71,10 +71,10 @@
 <body>
  <div class="slider">
    <ul class="img-ct">
-     <li data-id=0><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/02/HD-wallpapers-1920x1080-Image-2-300x200.jpg" alt="image"></a></li>
-     <li data-id=1><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/hd-wallpaper-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
-     <li data-id=2><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/wallpaper-hd-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
-     <li data-id=3><a href="javascript:;"><img src="http://www.pinkandblue.in/wp-content/uploads/2017/02/pink-and-blue-happy-hug-day-dps-whatsapp-facebook-image-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/02/HD-wallpapers-1920x1080-Image-2-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/hd-wallpaper-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/wallpaper-hd-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://www.pinkandblue.in/wp-content/uploads/2017/02/pink-and-blue-happy-hug-day-dps-whatsapp-facebook-image-300x200.jpg" alt="image"></a></li>
    </ul>
    <a href="javascript:;" class="pre arrow"><</a>
    <a href="javascript:;" class="next arrow">></a>
@@ -98,24 +98,34 @@ window.onload = function() {
   var count =0
   var $bar = $('.sliderbar>li')
   var isAnimate = false
+  var clock = setInterval(function() {
+          playNext()
+      },2000) 
 
   $slider.on('mouseenter',function(){
+    if(clock) clearInterval(clock)
     $arrow.show();
   })
   $slider.on('mouseleave',function(){
     $arrow.hide();
+    clock = setInterval(function() {
+          playNext()
+      },2000) 
   })//鼠标放置在图片上显示左右箭头
 
   $ct.append($imgs.eq(0).clone())
   $ct.prepend($imgs.eq(3).clone())
   $ct.width(($imgs.length+2)*imgWidth)
   $ct.css({left:-imgWidth})
+
   $preBtn.on('click',function() {
     playPre()
   })
   $nextBtn.on('click',function() {
     playNext()
-  })   
+  }) 
+  
+ 
    function playPre() {
      if (isAnimate) return;
      isAnimate = true
@@ -127,7 +137,8 @@ window.onload = function() {
     }
     barMove(count)
     isAnimate = false
-    })  
+    })
+    $imgs.eq(count-1).hide().fadeIn(1000)   
   }
   function playNext() {
      if (isAnimate) return;
@@ -140,8 +151,10 @@ window.onload = function() {
     }
     barMove(count)
     isAnimate = false
-    })  
+    })
+    $imgs.eq(count+1).hide().fadeIn(1000)  
   }//图片位移
+
  $bar.each(function() {
   $(this).on('click',function() {
     var pageIndex = $(this).index()
