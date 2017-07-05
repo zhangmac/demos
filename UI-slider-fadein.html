@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fadeIn-slider</title>
+	<style>
+ body {
+  padding: 10px;
+ }
+ ul,li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+ }
+ .slider {
+  position: relative;
+  width: 300px;
+  height: 204px;
+  overflow: hidden;
+ }
+ .img-ct {
+  width: 1200px;
+  position: absolute;
+ }
+ .img-ct>li {
+   float: left;
+   display: none;
+ }
+ .arrow {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  top: 50%;
+  margin-top: -15px;
+  z-index: 1;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  display: none;
+  cursor: pointer;
+ }
+ .preBtn {
+  left: 10px;
+ }
+ .nextBtn {
+  right: 10px;
+ }
+ .sliderbar {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+ }
+ .sliderbar>li {
+  display: inline-block;
+  width: 30px;
+  height: 6px;
+  z-index: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+ }
+ .sliderbar>li.active {
+  background: #fff;
+ }
+  </style>
+</head>
+<body>
+	 <div class="slider">
+   <ul class="img-ct">
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/02/HD-wallpapers-1920x1080-Image-2-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/hd-wallpaper-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/wallpaper-hd-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://www.pinkandblue.in/wp-content/uploads/2017/02/pink-and-blue-happy-hug-day-dps-whatsapp-facebook-image-300x200.jpg" alt="image"></a></li>
+   </ul>
+   <a href="javascript:;" class="preBtn arrow"> < </a>
+   <a href="javascript:;" class="nextBtn arrow">></a>
+   <ul class="sliderbar">
+     <li class="active"></li>
+     <li></li>
+     <li></li>
+     <li></li>
+   </ul>
+ </div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+window.onload =function() {
+
+ var $ct = $('.imgs-ct')
+ var $slider = $('.slider')
+ var $imgs =$('.img-ct>li')
+ var $imgCount = $imgs.length  
+ var $nextBtn=$('.nextBtn')
+ var $preBtn=$('.preBtn')
+ var $arrow = $('.arrow')
+ var $bar= $('.sliderbar>li')
+ var isAnimate = false
+
+ var clock =setInterval(function(){
+  play((curIndex+1)% $imgCount)
+ },1800)
+ var curIndex = 0
+
+  play(0);
+
+ $slider.on('mouseenter',function(){
+  if (clock) {clearInterval(clock)};
+    $arrow.show();
+  })
+  $slider.on('mouseleave',function(){
+    $arrow.hide();
+    clock =setInterval(function(){
+  play((curIndex+1)% $imgCount)
+ },1800)
+  }) 
+
+  $preBtn.on('click',function() {
+    play(($imgCount+ curIndex-1)% $imgCount)
+  })
+  $nextBtn.on('click',function() {
+    play((curIndex+1)% $imgCount)// 1%4取余数得到1,2%4得到2,3%4得到3，4%4得到0，从而实现一个循环
+  })
+
+
+ function play(index) {
+  if (isAnimate) return;
+     isAnimate = true
+   $imgs.eq(curIndex).fadeOut(600)
+   $imgs.eq(index).fadeIn(600,function(){
+    isAnimate = false;
+   })
+   barMove(index)
+   curIndex= index;
+
+ }
+function barMove(count) {
+    $bar.eq(count).addClass('active')
+    $bar.eq(count).siblings().removeClass('active')
+  }
+
+ $bar.each(function(){
+  $(this).on('click',function(){
+    var pageIndex = $(this).index()
+    play(pageIndex)
+  })
+ })
+  
+}
+</script>
+</body>
+</html>
