@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>waterfall</title>
+  <style>
+   li {
+    position: absolute;
+    margin: 0;
+    padding: 0 10px 10px 0;
+    list-style: none;
+    transition: all 1s
+   }
+   ul {
+    position: relative;
+    margin-top: 80px;
+   }
+   .masking {
+/*    width: 100%;
+    height: 100%;*/
+    text-align: center;
+   }
+   .masking>img {
+    width: 400px;
+    height: 400px;
+   }
+   .masking>p {
+    font-size: 22px;
+    font-weight: bold;
+   }
+   .container #change {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    width: 100px;
+    height: 50px;
+    background-color:#008B8B;
+    border-color:#008B8B;
+    color: #fff;
+    box-shadow: 2px 2px 3px 3px rgba(0,0,0,0.3)
+  }
+  </style>
+</head>
+<body>
+ <div class="masking">
+    <img src="https://media2.giphy.com/media/l3nWhI38IWDofyDrW/giphy.gif" alt="loading">
+    <p>图片正在加载中~~~~</p>
+ </div>
+ <div class="container">
+   <ul class="imgList">
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/500/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/200/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/800/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/200/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/700/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/500/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/200/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/200/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/700/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/500/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/600/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/200/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/200/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/300/?random" alt="图片加载失败"></a></li>
+     <li><a href="javascript:;"><img src="https://unsplash.it/200/400/?random" alt="图片加载失败"></a></li>
+   </ul>
+      <button id="change">换一批看看</button>
+ </div>
+
+
+
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+
+$('.container').hide()
+
+window.onload = function() {
+  $('.masking').hide()
+  $('.container').show()
+
+
+  waterfall()
+
+  $(window).on('resize',function() {
+    waterfall()
+  })
+
+function waterfall() {
+      var $imgs = $('.imgList>li')
+      var imgWidth = $imgs.width()
+      var colLength = parseInt($('.container').width()/imgWidth)
+      var arr = []
+      
+      for (var i = 0; i < colLength; i++) {
+      arr[i] = 0
+      }
+      
+      $imgs.each(function() {
+      var minvalue = Math.min.apply(null,arr)
+      var minIndex = arr.indexOf(minvalue)
+      
+      $(this).css({
+      top:arr[minIndex], 
+      left:$(this).outerWidth(true) * minIndex
+      })
+      arr[minIndex] += $(this).outerHeight(true)
+      })
+}
+$('#change').on('click',function(){
+  location.reload();
+})
+
+}
+</script>
+</body>
+</html>
