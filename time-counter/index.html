@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta charset    ="utf-8">
+  <meta http-equiv ="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>倒计时</title>
+  <meta name ="description" content="">
+  <meta name ="keywords" content="">
+  <script type ="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <style>
+   body {
+    background: #5A4383;
+   }
+   .container {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+   }
+   label {
+    font-size: 20px;
+    color: #fff;
+   }
+
+   .clock {
+    margin-top: 30px;
+    vertical-align: middle;
+   }
+   .clock span {
+    vertical-align: super;
+    font-size: 20px;
+    color: #fff;
+   }
+   .buttons {
+    margin-top: 30px;
+   }
+  </style>
+</head>
+<body>
+  <div class="container">
+   <form action="" method="get">
+
+<!--     <label for="selectTime">准备学习时间:</label>
+ <select name="mins" id="selectTime">
+  <option value="25">25分钟</option>
+  <option value="35">35分钟</option>
+  <option value="45">45分钟</option>
+  <option value="60">1小时</option>
+  <option value="120">2小时</option>
+ </select>  -->
+    <label for="studyTime">我要学习的时长是:</label>
+    <input type="text" id="studyTime" name="studyTime" placeholder="格式为:002500">
+    <input type="button" id="confirm" value="确定">
+    <section class="clock">
+      <img src="images/0.png" alt="0">
+      <img src="images/0.png" alt="0">
+      <span>:</span>
+      <img src="images/2.png" alt="2">
+      <img src="images/5.png" alt="5">
+      <span>: </span>
+      <img src="images/0.png" alt="0">
+      <img src="images/0.png" alt="0">
+    </section>
+    <section class="buttons">
+      <input class="reset" type="reset" value="复位" disabled="disabled">
+      <input class="stop" type="button" value="停止" disabled="disabled">
+      <input class="conti" type="button" value="继续" disabled="disabled">
+    </section>
+   </form>
+  </div>
+
+<script>
+window.onload=function() {
+
+/*将输入框中的时间在图片中显示*/
+    var str=''
+    var $studyTime = $('#studyTime')
+    var $imgs = $('.clock > img')
+    var $confirm = $('#confirm')
+    var sumTime=0
+    var $stopBtn = $('.stop')
+    var $contiBtn = $('.conti')
+    var $resetBtn = $('.reset')
+
+    var clock
+    
+    
+    $confirm.click(function(){
+    str = $studyTime.val()
+    sumTime = (parseInt(str[0])*10+parseInt(str[1]))*60*60*1000+(parseInt(str[2])*10+parseInt(str[3]))*60*1000+(parseInt(str[4])*10+parseInt(str[5]))*1000 //将准备学习时间转化成毫秒 
+    show()
+    counter()
+    $resetBtn.prop('disabled',false)
+    $contiBtn.prop('disabled',false)
+    $stopBtn.prop('disabled',false)
+    })
+
+   $stopBtn.click(function() {
+      clearTimeout(clock)
+      $stopBtn.prop('disabled',true)
+      $contiBtn.prop('disabled',false)
+   })
+   $contiBtn.click(function() {
+      clock=setTimeout(counter,1000)
+      $contiBtn.prop('disabled',true)
+      $stopBtn.prop('disabled',false)
+   })
+    $resetBtn.click(function() {
+      for (var i = 0; i < $imgs.length; i++) {
+      $imgs[i].src="images/0.png"
+      };
+      $contiBtn.prop('disabled',true)
+      $stopBtn.prop('disabled',true)
+    })
+
+
+    function show() {
+    if(str[2] >= 6 || str[4] >= 6 || str.length>6) {
+      alert('您输入格式有误')
+      return;
+    }//检验输入格式
+    for (var i = 0; i < $imgs.length; i++) {
+       $imgs[i].src="images/"+str[i]+".png"
+    }     
+  } 
+    
+    function addZero(n) { //对小于10的数补0
+      if (n<10) {
+      return '0'+n;
+    }
+      return n;
+    }  
+
+    function counter() {
+    var hours =  parseInt(sumTime/1000/60/60 % 24)
+    var mins = parseInt(sumTime/1000/60 % 60);
+    var sec = parseInt(sumTime/1000 % 60);
+    var timeStr = ''
+    timeStr+=addZero(hours)
+    timeStr+=addZero(mins)
+    timeStr+=addZero(sec)
+    sumTime -= 1000
+    str=timeStr
+    show()
+   clock = setTimeout(counter,1000)
+   }
+
+
+
+
+
+
+
+
+
+
+
+}
+</script>
+</body>
+</html>
