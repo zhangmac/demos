@@ -42,7 +42,6 @@
 <body>
   <div class="container">
    <form action="/abc " method="get">
-
 <!--     <label for="selectTime">准备学习时间:</label>
  <select name="mins" id="selectTime">
   <option value="25">25分钟</option>
@@ -50,7 +49,7 @@
   <option value="45">45分钟</option>
   <option value="60">1小时</option>
   <option value="120">2小时</option>
- </select>  -->
+ </select>  --> 
     <label for="studyTime">我要学习的时长是:</label>
     <input type="text" id="studyTime" name="studyTime" placeholder="格式为:002500">
     <input type="button" id="confirm" value="确定">
@@ -77,7 +76,6 @@
 <script>
 window.onload=function() {
 
-
     var str=''
     var $studyTime = $('#studyTime')
     var $imgs = $('.clock > img')
@@ -87,17 +85,19 @@ window.onload=function() {
     var $resetBtn = $('.reset')
     var sumTime=0
     var sumTime2 = 0
+    var locked = false
     var clock
     
     
     $confirm.click(function(){
+      if (locked) return;
     str = $studyTime.val()
     if(str[2] >= 6 || str[4] >= 6 || str.length>6) {
       alert('您输入格式有误')
       return;
     }//检验输入格式
     sumTime = (parseInt(str[0])*10+parseInt(str[1]))*60*60*1000+(parseInt(str[2])*10+parseInt(str[3]))*60*1000+(parseInt(str[4])*10+parseInt(str[5]))*1000 //将准备学习时长转化成毫秒 
-    sumTime2 = sumTime
+    sumTime2 = sumTime  //由于后期使用递归，sumTime值会不断变化，所以将值赋给sumTime2
     show()
     counter()
     $resetBtn.prop('disabled',false)
@@ -144,6 +144,7 @@ window.onload=function() {
     }  
 /*倒计时功能 使用递归时限倒计时功能*/
     function counter() {
+      locked = true
     var hours =  parseInt(sumTime/1000/60/60 % 24)
     var mins = parseInt(sumTime/1000/60 % 60);
     var sec = parseInt(sumTime/1000 % 60);
@@ -165,6 +166,7 @@ window.onload=function() {
 /*提交学习时长数据到后台，记录并且累加*/
    var total = 0
    $('.sumbit').click(function() {
+    locked = false
     $.ajax ({
       url:"/abc",
       method:"get",

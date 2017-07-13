@@ -16,8 +16,6 @@
     margin-top: 80px;
    }
    .masking {
-/*    width: 100%;
-    height: 100%;*/
     text-align: center;
    }
    .masking>img {
@@ -92,10 +90,6 @@
       <button id="change">换一批看看</button>
  </div>
 
-
-
-
-
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 
@@ -104,8 +98,6 @@ $('.container').hide()
 window.onload = function() {
   $('.masking').hide()
   $('.container').show()
-
-
   waterfall()
 
   $(window).on('resize',function() {
@@ -124,8 +116,7 @@ function waterfall() {
       
       $imgs.each(function() {
       var minvalue = Math.min.apply(null,arr)
-      var minIndex = arr.indexOf(minvalue)
-      
+      var minIndex = arr.indexOf(minvalue)      
       $(this).css({
       top:arr[minIndex], 
       left:$(this).outerWidth(true) * minIndex
@@ -136,7 +127,6 @@ function waterfall() {
 $('#change').on('click',function(){
   location.reload();
 })
-
 }
 </script>
 </body>
