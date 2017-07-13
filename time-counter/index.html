@@ -33,11 +33,15 @@
    .buttons {
     margin-top: 30px;
    }
+   .sumbit {
+    display: none;
+    margin-top: 50px;
+   }
   </style>
 </head>
 <body>
   <div class="container">
-   <form action="" method="get">
+   <form action="/abc " method="get">
 
 <!--     <label for="selectTime">准备学习时间:</label>
  <select name="mins" id="selectTime">
@@ -66,32 +70,45 @@
       <input class="conti" type="button" value="继续" disabled="disabled">
     </section>
    </form>
+   <input class="sumbit" type="button" value="提交数据">
+   <p class="tip"></p>
   </div>
 
 <script>
 window.onload=function() {
 
-/*将输入框中的时间在图片中显示*/
+
     var str=''
     var $studyTime = $('#studyTime')
     var $imgs = $('.clock > img')
     var $confirm = $('#confirm')
-    var sumTime=0
     var $stopBtn = $('.stop')
     var $contiBtn = $('.conti')
     var $resetBtn = $('.reset')
-
+    var sumTime=0
+    var sumTime2 = 0
     var clock
     
     
     $confirm.click(function(){
     str = $studyTime.val()
-    sumTime = (parseInt(str[0])*10+parseInt(str[1]))*60*60*1000+(parseInt(str[2])*10+parseInt(str[3]))*60*1000+(parseInt(str[4])*10+parseInt(str[5]))*1000 //将准备学习时间转化成毫秒 
+    if(str[2] >= 6 || str[4] >= 6 || str.length>6) {
+      alert('您输入格式有误')
+      return;
+    }//检验输入格式
+    sumTime = (parseInt(str[0])*10+parseInt(str[1]))*60*60*1000+(parseInt(str[2])*10+parseInt(str[3]))*60*1000+(parseInt(str[4])*10+parseInt(str[5]))*1000 //将准备学习时长转化成毫秒 
+    sumTime2 = sumTime
     show()
     counter()
     $resetBtn.prop('disabled',false)
     $contiBtn.prop('disabled',false)
     $stopBtn.prop('disabled',false)
+    $('.tip').hide()
+
+    if (sumTime===0) {
+    alert("任务目标已完成，休息一下吧")
+    $('.sumbit').show()
+   };
     })
 
    $stopBtn.click(function() {
@@ -112,24 +129,20 @@ window.onload=function() {
       $stopBtn.prop('disabled',true)
     })
 
-
+/*将输入框中的时间在图片中显示*/
     function show() {
-    if(str[2] >= 6 || str[4] >= 6 || str.length>6) {
-      alert('您输入格式有误')
-      return;
-    }//检验输入格式
     for (var i = 0; i < $imgs.length; i++) {
        $imgs[i].src="images/"+str[i]+".png"
     }     
   } 
-    
-    function addZero(n) { //对小于10的数补0
+/*   对小于10的数补0*/  
+    function addZero(n) {
       if (n<10) {
       return '0'+n;
     }
       return n;
     }  
-
+/*倒计时功能 使用递归时限倒计时功能*/
     function counter() {
     var hours =  parseInt(sumTime/1000/60/60 % 24)
     var mins = parseInt(sumTime/1000/60 % 60);
@@ -138,13 +151,34 @@ window.onload=function() {
     timeStr+=addZero(hours)
     timeStr+=addZero(mins)
     timeStr+=addZero(sec)
-    sumTime -= 1000
     str=timeStr
     show()
    clock = setTimeout(counter,1000)
+   if (sumTime===0) {
+    alert("任务目标已完成，休息一下吧")
+    $('.sumbit').show()
+     clearTimeout(clock)
+   };
+      sumTime -= 1000
    }
 
-
+/*提交学习时长数据到后台，记录并且累加*/
+   var total = 0
+   $('.sumbit').click(function() {
+    $.ajax ({
+      url:"/abc",
+      method:"get",
+      data: {
+        studyTime: sumTime2,
+        totalTime: total
+      }
+    }).done(function(res) {
+       $('.tip').show()
+     $('.tip').text("你已经学习了"+res)
+     total += sumTime2
+    })
+   })
+  
 
 
 
