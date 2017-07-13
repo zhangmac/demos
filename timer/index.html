@@ -85,7 +85,7 @@ window.onload=function() {
     var $resetBtn = $('.reset')
     var sumTime=0
     var sumTime2 = 0
-    var locked = false
+    var locked = false  //状态锁，防止创建多个闹钟
     var clock
     
     
@@ -103,6 +103,7 @@ window.onload=function() {
     $resetBtn.prop('disabled',false)
     $contiBtn.prop('disabled',false)
     $stopBtn.prop('disabled',false)
+    $('.sumbit').hide()
     $('.tip').hide()
 
     if (sumTime===0) {
@@ -127,6 +128,8 @@ window.onload=function() {
       };
       $contiBtn.prop('disabled',true)
       $stopBtn.prop('disabled',true)
+      clearTimeout(clock)
+      locked = false
     })
 
 /*将输入框中的时间在图片中显示*/
@@ -142,7 +145,7 @@ window.onload=function() {
     }
       return n;
     }  
-/*倒计时功能 使用递归时限倒计时功能*/
+/*倒计时功能 使用递归实现倒计时功能*/
     function counter() {
       locked = true
     var hours =  parseInt(sumTime/1000/60/60 % 24)
@@ -180,17 +183,24 @@ window.onload=function() {
      total += sumTime2
     })
    })
-  
-
-
-
-
-
-
-
-
-
 }
 </script>
+<!-- 
+<script>
+  以下为后端代码
+  router.get('/abc',function(req,res) {
+  var time = parseInt(req.query.studyTime) + parseInt(req.query.totalTime)
+
+  var hours =  parseInt(time/1000/60/60 % 24)
+  var mins = parseInt(time/1000/60 % 60);
+  var sec = parseInt(time/1000 % 60);
+  var timeStr = hours+'小时'+mins+"分"+sec+"秒"
+ 
+
+  res.header("Access-Control-Allow-Origin", "*")
+  res.send(timeStr)
+
+})
+</script> -->
 </body>
 </html>
