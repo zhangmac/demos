@@ -30,18 +30,19 @@ img {
   <div class="container">
   </div>
 
-<script type ="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type ="text/javascript" src="//apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
 window.onload =function() {
 
-  function Cask($ct) {
+  function Barrel($ct) {
    this.ct= $ct
    this.initheight = 200
+   this.marRight =10
    this.rowList=[]
    this.loadImg()
   }
 
-  Cask.prototype = {
+  Barrel.prototype = {
     getImgUrls: function(num){
       var width,height,urls = [];
       for (var i = 0; i < num; i++) {
@@ -54,12 +55,12 @@ window.onload =function() {
 
     loadImg: function() {
       var _this = this
-      var imgs = this.getImgUrls(10)
+      var imgs = this.getImgUrls(20)
 
-      for (var i = 0; i < imgs.length; i++) {
+      $.each(imgs,function(idx,url) {
         var img = new Image()
-        console.log(img)
-        img.onload =function() {
+            img.src = url;
+        img.onload = function() {
           var originWidth = img.width,
               originHeight = img.height,
               ratio = originWidth/originHeight
@@ -68,11 +69,9 @@ window.onload =function() {
              width:  _this.initheight*ratio,
              height: _this.initheight
             }  
-            console.log(imgInfo.width)
-          _this.render(imgInfo)
-        }
-        img.src = imgs[i];
-      }
+            _this.render(imgInfo)
+        }       
+      }) 
     },
     render:function(imgInfo) {
       var clientWidth = this.ct.width()
@@ -82,30 +81,31 @@ window.onload =function() {
 
       this.rowList.push(imgInfo)
       for (var i = 0; i < this.rowList.length; i++) {
-        rowWidth += this.rowList[i].width
+        rowWidth += this.rowList[i].width+this.marRight
       };
       if (rowWidth>clientWidth) {
         this.rowList.pop()
-        newRowHeight = clientWidth*_this.initheight/rowWidth
-        this.layout()
+        rowWidth = rowWidth - lastImgInfo.width-this.marRight
+        newRowHeight = (clientWidth*this.initheight)/rowWidth
+        this.layout(newRowHeight)
         this.rowList=[]
         this.rowList.push(lastImgInfo)
       };
     },
-    layout:function() {
+    layout:function(newRowHeight) {
       var $rowCt =$("<div class='img-row'></div>")
       $.each(this.rowList,function(idx,imgInfo) {
         var $imgCt = $("<div class='img-box'></div>")
-        var $img = $(img.target)
+        var $img = $(imgInfo.target)
         $img.height(newRowHeight)
         $imgCt.append($img)
         $rowCt.append($imgCt)
         console.log($rowCt)
       })
       this.ct.append($rowCt)
-   },
+   }
   }
-  var a = new Cask($('.container'))
+  var a = new Barrel($('.container'))
  } 
 </script>
 </body>
