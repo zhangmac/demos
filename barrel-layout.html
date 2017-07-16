@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+  <meta charset    ="utf-8">
+  <meta http-equiv ="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>barrel-layout</title>
+<style>
+  .container {
+    width: 1200px;
+    margin: 50px auto;
+  }
+.img-row{
+    margin-bottom: 10px;
+}
+.img-row:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.img-box{
+    float: left;
+}
+img {
+    border-radius: 8px;
+    margin-right: 8px;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+  </div>
+
+<script type ="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+window.onload =function() {
+
+  function Cask($ct) {
+   this.ct= $ct
+   this.initheight = 200
+   this.rowList=[]
+   this.loadImg()
+  }
+
+  Cask.prototype = {
+    getImgUrls: function(num){
+      var width,height,urls = [];
+      for (var i = 0; i < num; i++) {
+        width = Math.floor(800+Math.random()*500)
+        height = Math.floor(600+Math.random()*400)
+        urls.push("https://unsplash.it/"+width+"/"+height)
+      };
+      return urls;
+    },
+
+    loadImg: function() {
+      var _this = this
+      var imgs = this.getImgUrls(10)
+
+      for (var i = 0; i < imgs.length; i++) {
+        var img = new Image()
+        console.log(img)
+        img.onload =function() {
+          var originWidth = img.width,
+              originHeight = img.height,
+              ratio = originWidth/originHeight
+            var imgInfo={
+             target: img,
+             width:  _this.initheight*ratio,
+             height: _this.initheight
+            }  
+            console.log(imgInfo.width)
+          _this.render(imgInfo)
+        }
+        img.src = imgs[i];
+      }
+    },
+    render:function(imgInfo) {
+      var clientWidth = this.ct.width()
+      var rowWidth = 0
+      var newRowHeight = 0
+      var lastImgInfo = imgInfo
+
+      this.rowList.push(imgInfo)
+      for (var i = 0; i < this.rowList.length; i++) {
+        rowWidth += this.rowList[i].width
+      };
+      if (rowWidth>clientWidth) {
+        this.rowList.pop()
+        newRowHeight = clientWidth*_this.initheight/rowWidth
+        this.layout()
+        this.rowList=[]
+        this.rowList.push(lastImgInfo)
+      };
+    },
+    layout:function() {
+      var $rowCt =$("<div class='img-row'></div>")
+      $.each(this.rowList,function(idx,imgInfo) {
+        var $imgCt = $("<div class='img-box'></div>")
+        var $img = $(img.target)
+        $img.height(newRowHeight)
+        $imgCt.append($img)
+        $rowCt.append($imgCt)
+        console.log($rowCt)
+      })
+      this.ct.append($rowCt)
+   },
+  }
+  var a = new Cask($('.container'))
+ } 
+</script>
+</body>
+</html>
