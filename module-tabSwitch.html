@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>module-tabSwitch</title>
+<meta charset="utf-8">
+<style>
+ ul,li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+ }
+ .container {
+  width: 700px;
+  border: 1px solid #ccc;
+ }
+ li {
+  float: left;
+  cursor: pointer;
+ }
+ .clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+ }
+ .headers {
+  margin: 20px 20px 0 20px;
+  border-bottom: 1px solid #ccc;
+ }
+ .headers>li {
+  padding: 20px 40px;
+ }
+ .headers .active {
+  border: 1px solid #ccc;
+  border-bottom-color: #fff;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: -1px;
+  color: purple;
+ }
+ .contents>li {
+  width: 100%;
+  margin: 20px;
+  display: none;
+
+ }
+ .contents .active {
+  display: block;
+ }
+</style>
+</head>
+
+<body>
+<div class="container">
+  <ul class="headers clearfix">
+    <li class="active">选项1</li>
+    <li>选项2</li>
+    <li>选项3</li>
+  </ul>
+ <ul class="contents clearfix">
+    <li class="active">内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+ </ul>
+</div>
+
+<br>
+
+<div class="container">
+  <ul class="headers clearfix">
+    <li class="active">选项1</li>
+    <li>选项2</li>
+    <li>选项3</li>
+    <li>选项4</li>
+    <li>选项5</li>
+  </ul>
+ <ul class="contents clearfix">
+    <li class="active">内容1</li>
+    <li>内容2</li>
+    <li>内容3</li>
+    <li>内容4</li>
+    <li>内容5</li>
+ </ul>
+</div>
+
+<script>
+ function TabSwitch(ct) {
+  this.ct = ct
+  this.init()
+  this.bind() 
+ }
+ TabSwitch.prototype = {
+  init: function() {
+    this.tabList = this.ct.querySelectorAll('.headers>li')
+    this.contentsLi = this.ct.querySelectorAll('.contents>li')
+  },
+  
+  bind: function() {
+    var _this = this
+    this.tabList.forEach(function(tabs){
+    tabs.onclick = function(e) {
+      var target = e.target
+      var index = [].indexOf.call(_this.tabList,target)
+      _this.tabList.forEach(function(li){
+         li.classList.remove('active')
+         target.classList.add('active')
+      })
+      _this.contentsLi.forEach(function(li){
+        li.classList.remove('active')
+      })
+      _this.contentsLi[index].classList.add('active')
+    }
+  })
+  }
+ 
+ }
+
+ new TabSwitch(document.querySelectorAll('.container')[0])
+ new TabSwitch(document.querySelectorAll('.container')[1])
+</script>
+</body>
+</html>
