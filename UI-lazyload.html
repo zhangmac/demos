@@ -72,47 +72,104 @@
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
 
-  lazyRender()
-  var clock
-  
-  $(window).on('scroll',function() {
-    if (clock) {
-      clearTimeout(clock)
-    }
-       clock = setTimeout(function() {
-        console.log('hello')
-        lazyRender()
-      },300)
-  })
-  
 
+function Exposure($target,callback) {
+   this.$target = $target
+   this.callback= callback
+   this.bind()
+   this.check()
 
-  function lazyRender() {
-     $('.images img').each(function() {
-      if(  isVisible($(this)) && !isLoaded($(this))  ){
-        imgShow($(this))
-      }
-    })   
-  }
+}
+Exposure.prototype = {
+  bind: function() {
+    var _this = this
+    $(window).on('scroll',function() {
+        _this.check()
+    })
+  },
 
- function isVisible($node) {
-      var scroHeight = $(window).scrollTop()
-      var windowHeight = $(window).height()
-      var $nodeTop = $node.offset().top
+  check: function() {
+    if (this.isVisible(this.$target) && !this.isLoaded(this.$target)) {
+       this.callback(this.$target)
+    };
+  },
 
-      if( $nodeTop <scroHeight+windowHeight && $nodeTop > scroHeight) {
+  isVisible: function($node) {
+    var scroHeight = $(window).scrollTop()
+    var windowHeight = $(window).height()
+    var $nodeTop = $node.offset().top
+    if( $nodeTop <scroHeight+windowHeight && $nodeTop > scroHeight) {
         return true
       }  
         return false
-  }  
+  },
 
- function isLoaded($node) {
-   return $node.attr('src') === $node.attr('data-src')
- }
+  isLoaded: function($node) {
+     return $node.attr('src') === $node.attr('data-src')
+  },
 
- function imgShow($node) {
-  $node.attr('src',$node.attr('data-src'))
- }
+  imgShow: function($node) {
+    $node.attr('src',$node.attr('data-src'))
+  }
+}
+
+var lazyRender = (function() {
+
+   return {
+    start: function($targets,callback) {
+     $targets.each(function(idx,target) {
+     new Exposure($(target),callback)
+     })
+    }
+  }
+})()
+ lazyRender.start($('.container img'),function($node) {
+   this.imgShow($node)
+ })
+
+
+
+ //  lazyRender()
+ //  var clock
+  
+ //  $(window).on('scroll',function() {
+ //    if (clock) {
+ //      clearTimeout(clock)
+ //    }
+ //       clock = setTimeout(function() {
+ //        console.log('hello')
+ //        lazyRender()
+ //      },300)
+ //  })
+  
+
+
+ //  function lazyRender() {
+ //     $('.images img').each(function() {
+ //      if(  isVisible($(this)) && !isLoaded($(this))  ){
+ //        imgShow($(this))
+ //      }
+ //    })   
+ //  }
+
+ // function isVisible($node) {
+ //      var scroHeight = $(window).scrollTop()
+ //      var windowHeight = $(window).height()
+ //      var $nodeTop = $node.offset().top
+
+ //      if( $nodeTop <scroHeight+windowHeight && $nodeTop > scroHeight) {
+ //        return true
+ //      }  
+ //        return false
+ //  }  
+
+ // function isLoaded($node) {
+ //   return $node.attr('src') === $node.attr('data-src')
+ // }
+
+ // function imgShow($node) {
+ //  $node.attr('src',$node.attr('data-src'))
+ // }
 
 </script>
 </body>
