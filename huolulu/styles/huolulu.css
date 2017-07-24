@@ -342,7 +342,43 @@ body {
 	text-decoration: underline;
 }
 
-
+.waterfall {
+    max-width: 1280px;
+    margin: 20px auto;
+  }
+ .waterfall  ul {
+    position: relative;
+  }
+.waterfall ul,.waterfall li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+  } 
+ .waterfall  li {
+    position: absolute;
+    width: 300px;
+    border: 1px solid #ccc;
+    margin: 0 20px 20px 0;
+    text-align: center;
+  }
+ .waterfall  li a {
+    text-decoration: none;
+    color: #000;
+  }
+ .waterfall  li a img {
+    width: 300px;
+    height: 300px;
+  }
+ .waterfall  li p {
+    margin: 8px 0;
+  }
+ .waterfall  .btn {
+ margin-left: 600px;
+ color: brown;
+ height: 50px;
+ width: 100px;
+  }
 
 
 

@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="iconfont/iconfont.css">
 </head>
 <body>
+<div class="container">
 <!-- logo 导航栏 -->
 	<div id="header">
 	    <div class="head">
@@ -22,7 +23,6 @@
 		 </div>
 		</div>
     </div>	
-
 
 <div class="slider">
    <ul class="img-ct">
@@ -40,9 +40,15 @@
      <li></li>
    </ul>
  </div>
+ <!--新闻加载部分-->
+  <div class="waterfall">
+ <ul class="news">
+ </ul>
+ <button class="btn">loadmore</button>
+ </div>
 
+<!-- 产品展示 -->
 	<div id="content" class="layout">
-	<!-- 产品展示 -->
 		<div class="products">
 		   <h1>产品展示</h1>	
 		   <ul class="display">
@@ -155,7 +161,7 @@
             </ul>
 		</div>
 	</div>
-	
+	<!-- 页脚部分 -->
 	<div id="footer">
 	<div class="ct">
 			<div class="contact layout">
@@ -184,12 +190,12 @@
 		 	<a href="#">Terms of Use</a>
 		 </div>
 	</div>
+</div>	
 </body>
 <script src="js/require.js"></script>
 <script>
 	requirejs.config({
 		baseUrl:"js",
-		waitSeconds: 1000,
 		paths: {
 			'jquery':"lib/jquery-3.2.1.min"
 		}
