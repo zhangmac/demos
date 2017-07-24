@@ -21,7 +21,7 @@ define(['jquery'],function($){
      	if (this.isVisible($('.btn'))) {
               this.isDataArrived = false
               $.ajax({
-     		url:'http://api.tianapi.com/it/?key=e0fdaae9ecc05a190d08d32b9e4c8991',
+     		url:'https://api.tianapi.com/it/?key=e0fdaae9ecc05a190d08d32b9e4c8991',
      		method:'get',
      		data: {
      		num: 20,
@@ -36,7 +36,7 @@ define(['jquery'],function($){
             _this.page++
         $('.waterfall .btn').on('click',function(){
         $.ajax({
-     		url:'http://api.tianapi.com/it/?key=e0fdaae9ecc05a190d08d32b9e4c8991',
+     		url:'https://api.tianapi.com/it/?key=e0fdaae9ecc05a190d08d32b9e4c8991',
      		method:'get',
      		data: {
      		num: 20,
