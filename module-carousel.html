@@ -7,7 +7,7 @@
  body {
   padding: 10px;
  }
- ul,li {
+ .slider ul,.slider li {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -18,14 +18,14 @@
   height: 204px;
   overflow: hidden;
  }
- .img-ct {
+ .slider .img-ct {
   width: 1200px;
   position: absolute;
  }
- .img-ct>li {
+ .slider .img-ct>li {
    float: left;
  }
- .arrow {
+ .slider .arrow {
   position: absolute;
   display: inline-block;
   width: 30px;
@@ -42,10 +42,10 @@
   display: none;
   cursor: pointer;
  }
- .pre {
+ .slider  .pre {
   left: 10px;
  }
- .next {
+ .slider  .next {
   right: 10px;
  }
  .sliderbar {
@@ -234,14 +234,14 @@ Carousel = (function(){
   }  
   
   return {
-    start: function(node) {
+    init: function(node) {
      node.each(function(index,node) {
         new _Carousel($(node))
      })
     }
   }
 })()
- Carousel.start($('.slider'))
+ Carousel.init($('.slider'))
 }  
 </script>
 </body>

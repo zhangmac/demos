@@ -10,7 +10,7 @@ body {
 /*首页头部*/
 #header {
 	height: 1000px;
-	background-image: url(../images/headerbg1.png);
+/*	background-image: url(../images/headerbg1.png);*/
 	padding: 1px;
 }
 #header .head {
@@ -82,6 +82,65 @@ body {
 #header .btn a:hover {
 	background: red;
 }
+ .slider ul,.slider li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+ }
+ .slider {
+  position: relative;
+  width: 300px;
+  height: 204px;
+  overflow: hidden;
+ }
+ .slider .img-ct {
+  width: 1200px;
+  position: absolute;
+ }
+ .slider .img-ct>li {
+   float: left;
+ }
+ .slider .arrow {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  top: 50%;
+  margin-top: -15px;
+  z-index: 1;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  display: none;
+  cursor: pointer;
+ }
+ .slider  .pre {
+  left: 10px;
+ }
+ .slider  .next {
+  right: 10px;
+ }
+ .sliderbar {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+ }
+ .sliderbar>li {
+  display: inline-block;
+  width: 30px;
+  height: 6px;
+  z-index: 1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+ }
+ .sliderbar>li.active {
+  background: #fff;
+ }
 /*内容部分*/
 .products {
 	margin-top: 200px;

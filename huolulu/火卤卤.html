@@ -30,6 +30,23 @@
 
 	</div>
 
+	<div class="slider">
+   <ul class="img-ct">
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/02/HD-wallpapers-1920x1080-Image-2-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/hd-wallpaper-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://hdwallpapersbuzz.com/wp-content/uploads/2017/03/wallpaper-hd-1920x1080-images-4-300x200.jpg" alt="image"></a></li>
+     <li><a href="javascript:;"><img src="http://www.pinkandblue.in/wp-content/uploads/2017/02/pink-and-blue-happy-hug-day-dps-whatsapp-facebook-image-300x200.jpg" alt="image"></a></li>
+   </ul>
+   <a href="javascript:;" class="pre arrow"><</a>
+   <a href="javascript:;" class="next arrow">></a>
+   <ul class="sliderbar">
+     <li class="active"></li>
+     <li></li>
+     <li></li>
+     <li></li>
+   </ul>
+ </div>
+
 	<div id="content" class="layout">
 	<!-- 产品展示 -->
 		<div class="products">
@@ -174,4 +191,14 @@
 		 </div>
 	</div>
 </body>
+<script src="js/require.js"></script>
+<script>
+	requirejs.config({
+		baseUrl:"js",
+		paths: {
+			'jquery':"lib/jquery-3.2.1.min"
+		}
+	})
+	requirejs(['app/index'])
+</script>
 </html>
