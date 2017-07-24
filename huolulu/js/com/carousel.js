@@ -13,7 +13,7 @@ define(['jquery'],function($){
       var $imgCt = this.$imgCt = this.ct.find('.img-ct'),
           $arrow =  this.$arrow = this.ct.find('.arrow'),
           $imgs = this.$imgs = this.ct.find('.img-ct>li'),
-          imgWidth =this.imgWidth = $imgs.width(),
+          imgWidth =this.imgWidth = $imgs.width(),//console.log(imgWidth)输出为0？
           $preBtn = this.$preBtn = this.ct.find('.pre'),
           $nextBtn = this.$nextBtn = this.ct.find('.next'),
           $bar = this.$bar = this.ct.find('.sliderbar>li')
@@ -23,7 +23,6 @@ define(['jquery'],function($){
           this.clock = setInterval(function() {
           _this.autoplay()
       },2000) 
-                console.log(imgWidth)
         this.$imgCt.append(this.$imgs.eq(0).clone())
         this.$imgCt.prepend(this.$imgs.eq(3).clone())
         this.$imgCt.width((this.$imgs.length+2)*imgWidth)
