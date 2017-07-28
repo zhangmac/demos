@@ -1,4 +1,5 @@
-define(['jquery'],function($){
+var $ = require('./jquery')
+
 	function GoTop($ct) {
 		this.ct = $ct
 		this.target = $("<button class='btn'>回到顶部</button>")
@@ -18,5 +19,4 @@ define(['jquery'],function($){
          	$(window).scrollTop(0)
          })
 		}
-		return GoTop
-})
+	module.exports = GoTop

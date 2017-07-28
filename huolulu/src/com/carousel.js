@@ -1,5 +1,5 @@
 
-define(['jquery'],function($){
+var $ = require('./jquery')
 
   function Carousel(ct) {
     this.ct = ct
@@ -121,6 +121,4 @@ define(['jquery'],function($){
   }
   
   } 
-  return Carousel
-
-})
+module.exports = Carousel

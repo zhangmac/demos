@@ -1,4 +1,5 @@
-define(['jquery'],function($){
+var $ = require('./jquery')
+
 	function Loadmore($ct) {
      this.$ct = $ct
      this.init()
@@ -98,6 +99,4 @@ define(['jquery'],function($){
       $('.news').height(maxvalue)	
     } 
    }
-   return Loadmore
-
-})
+ module.exports = Loadmore
