@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订阅发布模式</title>
+</head>
+<body>
+	<script>
+var PubSub = function() {
+	this.eventPool = {}
+}
+PubSub.prototype.on = function(topicName,callback) {
+	var topic = this.eventPool[topicName]
+	if (!topic) {
+		this.eventPool[topicName] = []
+	}
+	this.eventPool[topicName].push(callback)
+}
+PubSub.prototype.trigger = function() {
+	var _arg = [].slice.call(arguments)
+	var topicName = _arg.shift()
+	var callbackArg = _arg
+	var topicCallback = this.eventPool[topicName]
+    if (topicCallback) {
+    	topicCallback.forEach(function(callback){
+          callback.apply(this,callbackArg)
+    	})
+    }
+}
+PubSub.prototype.off = function() {
+	delete this.eventPool[topicName]
+}
+	</script>
+</body>
+</html>

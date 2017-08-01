@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例模式</title>
+</head>
+<body>
+	<script>
+	var People = (function() {
+      var instance
+      function init(name) {
+      	return {
+      		name:name
+      	};
+      }
+      return {
+      	createPeople: function(name) {
+      		if (!instance) {
+      			instance = init(name)
+      		}
+      		return instance;
+      	}
+      }
+	}())
+	People.createPeople('zhangsan')
+	</script>
+</body>
+</html>

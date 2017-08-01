@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>构造模式</title>
+</head>
+<body>
+	<script>
+    function Person(name,age) {
+		this.name =name
+		this.age = age
+	}
+	Person.prototype.sayName = function() {
+		return this.name
+	}
+	var student = new Person('xiaoming',12)
+	</script>
+</body>
+</html>
