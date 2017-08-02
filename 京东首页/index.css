@@ -1,7 +1,10 @@
+
 html,body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	color: #f6f6f6;
+	font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
 }
 .clearfix:after {
 	content: '';
@@ -24,17 +27,10 @@ html,body {
 	color: #666;
 	cursor: pointer;
 }
- /* ————————————header部分———————————— */
-/*header {
-	width: 1190px;
-	margin: 0 auto;
-}*/
+/* ————————————顶部导航部分———————————— */ 
 .infobar {
 	width: 100%;
 	background: #ddd;
-	font-size: 13px;
-/*	height: 30px;
-	line-height: 30px;*/
 }
 ul,li {
 	margin: 0;
@@ -55,10 +51,69 @@ ul,li {
 .infobar span {
 	float: left;
 	color: #999;
+	font-size: 12px;
     margin: 10px 200px 10px 300px;
 }
-.info:first-child, 
-.info:last-child {
-	border: none;
+.infobar .iconfont:before {
+	color: #f10215;
 }
-	;
+.info li:first-child, 
+.info li:last-child {
+	border: none;
+	padding-right: 0;
+}
+.info li:nth-child(2) a {
+	color: #f10215;
+}
+.info li:hover a {
+    color: #f10215;
+}
+
+/* ————————————header部分———————————— */
+header {
+	position: relative;
+	width: 1190px;
+	margin: 0 auto;
+}
+header .logo {
+	float: left;
+	margin-top: -37px;
+	width: 190px;
+	height: 170px;
+	background: #fff;
+	box-shadow: 1px 0 1px 1px rgba(0,0,0,0.2)
+}
+header .searchbar {
+	float: left;
+	margin-left: 131px;
+	margin-top: 27px;
+}
+header .searchbar input {
+	width: 490px;
+	height: 25px;
+	line-height: 25px;
+   border: 1px solid #f10215;
+}
+header .hotwords {
+	width: 550px;
+	height: 20px;
+	line-height: 20px;
+}
+header .hotwords li {
+	float: left;
+}
+header .hotwords li a {
+	margin-right: 10px;
+	text-decoration: none;
+	color: #999;
+}
+header .hotwords a:hover  {
+	color: #c81623;
+}
+header .hotwords li:first-child a {
+	color: #f10215;
+}
+header .cart {
+	float: left;
+	color: #000;
+}
