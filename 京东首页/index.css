@@ -232,3 +232,33 @@ header .adv {
 	float: right;
     margin-top: 2px;
 }
+/* ————————————产品导航部分———————————— */
+a {
+	text-decoration: none;
+}
+.main-list {
+	width: 1190px;
+	margin: 0 auto;
+}
+.main-list .sidebar {
+	width: 190px;
+	background: #6e6568;
+	color: #fff;
+	float: left;
+	margin-top: -1px;
+}
+.main-list .sidebar ul {
+	padding: 16px 0;
+}
+.main-list .sidebar li a {
+	font-size: 14px;
+	color: #fff;	
+}
+.main-list .sidebar li  {
+	height: 28px;
+	line-height: 28px;
+	padding-left: 12px;	
+}
+.main-list .sidebar a:hover {
+	color: #c81623;
+}
