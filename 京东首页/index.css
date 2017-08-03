@@ -3,7 +3,7 @@ html,body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	color: #f6f6f6;
+	background: #f6f6f6;
 	font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
 }
 .clearfix:after {
@@ -84,20 +84,36 @@ header .logo {
 	box-shadow: 1px 0 1px 1px rgba(0,0,0,0.2)
 }
 header .searchbar {
+	position: relative;
 	float: left;
 	margin-left: 131px;
 	margin-top: 27px;
 }
 header .searchbar input {
 	width: 490px;
-	height: 25px;
-	line-height: 25px;
+	height: 35px;
+	line-height: 35px;
    border: 1px solid #f10215;
+}
+header .searchbar span {
+	position: absolute;
+	right: 8px;
+	top: 0;
+	display: inline-block;
+	width: 52px;
+	height: 35px;
+	background: #f10215;
+	text-align: center;
+}
+header .icon-search:before {
+	font-size: 25px;
+	color: #fff;
 }
 header .hotwords {
 	width: 550px;
 	height: 20px;
 	line-height: 20px;
+	margin-top: 7px;
 }
 header .hotwords li {
 	float: left;
