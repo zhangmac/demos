@@ -332,24 +332,101 @@ a {
 }
 /* ————————————新闻列表———————————— */
 .right-side .news{
-	widows: 190px;
-	border-bottom: 1px solid #e6e6e6;
+	width: 190px;
 }
-.right-side .news ul {
+.right-side .news>ul {
 	padding: 10px;
 }
-.right-side .news li {
+.right-side .news>ul li {
 	float: left;
     color: #333;
     line-height: 14px;
 	height: 14px;
 	padding-right: 12px; 
+	position: relative;
+	cursor: pointer;
 
 }
-.right-side .news li:first-child {
+.right-side .news .items>li:first-child {
 	border-right: 1px solid #dfe0e1;
 }
-.right-side .news li:nth-child(2) {
+.right-side .news .items>li:nth-child(2) {
 	margin-left: 12px;
 	margin-right: 48px;
+}
+.right-side .news .items>li:nth-child(3):hover {
+    color: #c81623;
+}
+.right-side .news .hot-sale {
+	position: absolute;
+	top: 20px;
+	left: 0;
+	width: 160px;
+	padding-top: 10px;
+	border-top: 1px solid #e6e6e6;
+}
+.right-side .news .hot-sale>li {
+
+    line-height: 24px;
+    height: 24px;
+    max-width: 160px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.right-side .news .hot-sale>li a {
+	color: #666;
+}
+.right-side .news .hot-sale>li a:hover {
+	color: #c81623;
+}
+/* ————————————生活服务———————————— */
+.right-side .services {
+   width: 190px;
+   margin-top: 120px;
+   border-top: 1px solid #e6e6e6;
+}
+.right-side .services>ul li {
+	float: left;
+	padding: 6px 12px 6px 10px;
+	border-right: 1px solid #e6e6e6;
+	height: 22px;
+	line-height: 22px;
+}
+.right-side .services>ul li:last-child {
+	border-right: none;
+}
+.right-side .services .tel-charge {
+	margin-top: 5px;
+}
+.right-side .services .tel-charge .charge {
+	margin-left: 5px;
+}
+.right-side .services .tel-charge a {
+    color: #666;
+    display: inline-block;
+    margin-right: 5px;
+}
+.right-side .services .tel-number {
+	margin-top: 16px;
+	margin-left: 5px;
+}
+.right-side .services .tel-number input {
+	width: 83px;
+	height: 20px;
+	line-height: 20px;
+    border: 1px solid #e7e7e7;
+    padding: 0 4px;
+}
+.right-side .services .cost {
+	margin-top: 10px;
+	margin-left: 5px;
+}
+.right-side .services .charge-btn {
+	display: block;
+	margin-left: 5px;
+	margin-top: 10px;
+	background: #e01222;
+	color: #fff;
+	padding: 5px 8px;
 }
