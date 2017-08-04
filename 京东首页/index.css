@@ -101,7 +101,7 @@ header .logo {
 	width: 190px;
 	height: 170px;
 	background: #fff;
-	box-shadow: 1px 0 1px 1px rgba(0,0,0,0.2)
+/*	box-shadow: 1px 0 1px 1px rgba(0,0,0,0.2)*/
 }
 header .searchbar {
 	position: relative;
@@ -207,7 +207,8 @@ header .qr-code:before {
 header .nav {
 	float: left;
 	margin-left: 41px;
-	margin-top: 22px;
+	margin-top: 16px;
+	padding-bottom: 6px;
 }
 header .nav li {
 	float: left;
@@ -268,6 +269,7 @@ a {
 .main-list .right-side {
 	width: 190px;
 	float: right;
+	background: #fff;
 }
 /* ————————————用户登录部分———————————— */
 .main-list .user {
@@ -345,7 +347,6 @@ a {
 	padding-right: 12px; 
 	position: relative;
 	cursor: pointer;
-
 }
 .right-side .news .items>li:first-child {
 	border-right: 1px solid #dfe0e1;
@@ -393,6 +394,10 @@ a {
 	height: 22px;
 	line-height: 22px;
 }
+.right-side .services>ul li:hover {
+	color: #e01121;
+	border-top: 2px solid #e01121;
+}
 .right-side .services>ul li:last-child {
 	border-right: none;
 }
@@ -402,10 +407,16 @@ a {
 .right-side .services .tel-charge .charge {
 	margin-left: 5px;
 }
-.right-side .services .tel-charge a {
+.right-side .services .tel-charge p a {
     color: #666;
     display: inline-block;
     margin-right: 5px;
+    height: 21px;
+    line-height: 21px;
+}
+.right-side .services .tel-charge p a:hover {
+	background: url(https://misc.360buyimg.com/virtuals/squares/1.0/css/i/iframe-san-new.png) center 0 no-repeat;
+	color: #fff;
 }
 .right-side .services .tel-number {
 	margin-top: 16px;
@@ -429,4 +440,29 @@ a {
 	background: #e01222;
 	color: #fff;
 	padding: 5px 8px;
+}
+.right-side .services .hot-icon {
+   color: #527cdb;
+   margin-top: 5px;
+   margin-left: 5px;
+   display: inline-block;
+}
+.right-side .services .hot-icon img {
+    vertical-align: -3px;
+}
+/* ————————————主页轮播部分———————————— */
+.carousel {
+	float: left;
+	width: 790px;
+	margin: 0 10px;
+}
+.carousel>ul li {
+	float: left;
+}
+.carousel .main-bottom-imgs>div {
+	display: inline-block;
+	margin-top: 8px;
+}
+.left-img {
+	margin-right: 6px;
 }
