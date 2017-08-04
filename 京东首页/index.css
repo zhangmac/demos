@@ -6,8 +6,13 @@ html,body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	color: #666;
 	background: #f6f6f6;
 	font: 12px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+	text-decoration: none;
 }
 .clearfix:after {
 	content: '';
@@ -53,7 +58,6 @@ ul,li {
 }
 .infobar li a {
     color: #999;
-    text-decoration: none;
 }
 .infobar span {
 	float: left;
@@ -137,7 +141,6 @@ header .hotwords li {
 }
 header .hotwords li a {
 	margin-right: 10px;
-	text-decoration: none;
 	color: #999;
 }
 header .hotwords a:hover  {
@@ -211,7 +214,6 @@ header .nav li {
 	margin-right: 32px;
 }
 header .nav li a {
-	text-decoration: none;
 	color: #555;
 	font-size: 16px;
 	font-weight: 700;
@@ -261,4 +263,93 @@ a {
 }
 .main-list .sidebar a:hover {
 	color: #c81623;
+}
+/* ————————————右边栏———————————— */
+.main-list .right-side {
+	width: 190px;
+	float: right;
+}
+/* ————————————用户登录部分———————————— */
+.main-list .user {
+	padding: 0 15px 18px 15px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.main-list .login {
+    padding: 15px 0;
+}
+.main-list .right-side .photo {
+	float: left;
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	background-position: -70px 0;
+    background-size: 156px 123px;
+	background-image: url(https://misc.360buyimg.com/mtd/pc/index/home/images/sprite_userinfo@1x.png);
+}
+.main-list .right-side .photo img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	padding: 5px;
+}
+.main-list .right-side .login p {
+	float: left;
+	margin-left: 8px;
+	margin-top: 6px;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+.main-list .right-side .login a {
+	float: left;
+	display: inline-block;
+	margin-left: 8px; 
+	color: #666;
+}
+.right-side .login a:hover {
+	color: #c81623;
+}
+.right-side .btn a {
+    display: inline-block;
+    margin-right: 10px;
+    width: 70px;
+    height: 20px;
+    border: 2px solid #e01222;
+    line-height: 20px;
+    font-size: 12px;
+    text-align: center;
+    color: #e01222;
+}
+.right-side .btn a:hover {
+	background: #e01222;
+	color: #fff;
+}
+.right-side .btn {
+	font-size: 0;
+}
+.right-side .btn a:last-child {
+	margin-right: 0;
+}
+/* ————————————新闻列表———————————— */
+.right-side .news{
+	widows: 190px;
+	border-bottom: 1px solid #e6e6e6;
+}
+.right-side .news ul {
+	padding: 10px;
+}
+.right-side .news li {
+	float: left;
+    color: #333;
+    line-height: 14px;
+	height: 14px;
+	padding-right: 12px; 
+
+}
+.right-side .news li:first-child {
+	border-right: 1px solid #dfe0e1;
+}
+.right-side .news li:nth-child(2) {
+	margin-left: 12px;
+	margin-right: 48px;
 }
