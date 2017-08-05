@@ -582,23 +582,25 @@ a {
 .miaosha .ms-pr li a:hover p {
     color: #c81623; 
 }
-/* 发现好货 */
+/* -------------------发现好货------------------ */
 .recommand {
 	width: 1190px;
 	margin: 20px auto;
 }
 .recommand .goods {
+	float: left;
 	width: 390px;
+	height: 444px;
+	margin-right: 10px;
 }
-.recommand .goods .title {
+.recommand .title {
 	position: relative;
 	height: 55px;
 	line-height: 55px;
 	color: #fff;
-	font-size: 26px;
-	background: #4998a1;	
+	font-size: 26px;	
 }
-.recommand .goods .title>span {
+.recommand  .title>span {
 	position: absolute;
 	z-index: 1;
 	top: -4px;
@@ -606,11 +608,10 @@ a {
 	display: block;
 	width: 25px;
 	height: 25px;
-	background-position: -190px -95px;
     background-size: 218px 188px;
 	background-image:  url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/sprite_index@1x.png);
 }
-.recommand .goods .title>div {
+.recommand .title>div {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -619,17 +620,23 @@ a {
 	border-top: 19px solid #f6f6f6;
 	border-right: 19px solid transparent;
 }
-.recommand .goods .title h3  {
+.recommand .title h3  {
 	float: left;
 	margin-left: 15px;
 }
-.recommand .goods .title p  {
+.recommand .title p  {
 	float: right;
 	font-size: 14px;
     margin-right: 20px;
 }
-.recommand .goods .title p a {
+.recommand  .title p a {
    color: #fff;
+}
+.recommand .goods .title>span {
+    background-position: -190px -95px;
+}
+.recommand .goods .title {
+    background: #4998a1;
 }
 .recommand .goods>ul {
 	background: #fff;
@@ -674,4 +681,64 @@ a {
     right: 10px;
     width: 80px;
     height: 80px;
+}
+/*----------------会买专辑----------------------*/
+.recommand .want-buy {
+	width: 390px;
+	height: 444px;
+	float: left;
+	margin-right: 10px;
+	background: #fff;
+}
+.recommand .want-buy .title {
+	background: #76488e;	
+}
+.recommand .want-buy .title>span {
+	background-position: 219px 28px;
+}
+.recommand .want-buy .title>div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-top: 19px solid #f6f6f6;
+	border-right: 19px solid transparent;
+}
+.recommand .want-buy .title h3  {
+	float: left;
+	margin-left: 15px;
+}
+.recommand .want-buy  .title p  {
+	float: right;
+	font-size: 14px;
+    margin-right: 20px;
+}
+.recommand .want-buy  .title p a {
+   color: #fff;
+}
+.recommand .want-buy .phone  a {
+	display: block;
+	color: #666;
+	border-bottom: 1px solid #e7e7e7;
+	font-size: 14px;
+	padding: 20px ;
+}
+.recommand .want-buy .phone  a:last-child {
+	border-bottom: none;
+}
+.recommand .want-buy .phone  a p {
+	margin-bottom: 10px;
+}
+/* -----------------排行榜-------------------------- */
+.recommand .rank {
+	width: 390px;
+	height: 444px;
+	float: left;
+}
+.recommand .rank .title {
+	background: #e77005;
+}
+.recommand .rank .title>span {
+	background-position: -190px 0;
 }
