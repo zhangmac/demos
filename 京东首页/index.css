@@ -466,3 +466,121 @@ a {
 .left-img {
 	margin-right: 6px;
 }
+/* 秒杀部分 */
+.miaosha {
+	width: 1190px;
+	margin: 0 auto;
+}
+.miaosha .box {
+	position: relative;
+	height: 55px;
+	line-height: 55px;
+	color: #fff;
+	margin-top: 10px;
+	width: 100%;
+	background: url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/seckill_hd.png) no-repeat 0 0;   	
+}
+.miaosha .box>span {
+	position: absolute;
+	top: -4px;
+	left: -4px;
+	display: block;
+	width: 28px;
+	height: 28px;
+	background-position: -188px -46px;
+    background-size: 218px 188px;
+	background-image:  url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/sprite_index@1x.png);
+}
+.miaosha .box .clock-img {
+	float: left;
+	margin-top: 8px;
+	margin-right: 8px;
+	margin-left: 30px;
+	background-image: url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/sprite_index@1x.png);
+	width: 34px;
+	height: 40px;
+	background-position: 0 -40px;
+	background-size: 218px 188px;
+}
+.miaosha .box h3 {
+	float: left;
+    font-family: fzzhengheis-el-gbregular;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 40px;
+    height: 40px;
+    padding-top: 9px;
+}
+.miaosha .box a {
+	color: #fff;
+	float: left;
+	margin-left: 12px;
+	font-size: 14px;
+	margin-top: 21px;
+    padding-right: 20px;
+    height: 24px;
+    line-height: 24px;
+}
+.miaosha .box a span {
+	 display: inline-block;
+     width: 10px;
+     height: 10px;
+     border-radius: 5px;
+}
+.miaosha .box .timer {
+    color: #fff;
+	float: right;
+	margin-left: 12px;
+	font-size: 14px;
+	margin-top: 21px;
+    padding-right: 20px;
+    height: 24px;
+    line-height: 24px;
+}
+.miaosha .ms-pr {
+	padding: 12px 0 13px;
+}
+.miaosha .ms-pr>ul {
+	float: left;
+	width: 1000px;
+}
+.miaosha .ms-pr li {
+	float: left;
+	width: 170px;
+	height: 225px;
+	padding: 0 14px 0 15px;
+	border-right: 1px solid #e7e7e7;
+	text-align: center;
+	color: #999;
+}
+.miaosha .ms-pr li a img {
+	margin: 17px 0;
+}
+.miaosha .ms-pr li a>p {
+    text-align: left;
+    color: #999;
+    font-size: 12px;
+    height: 32px;
+    line-height: 16px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.miaosha .ms-pr li>p {
+	text-align: left;
+	padding: 3px 0;
+	color: #f10214;
+	font-size: 16px;
+}
+.miaosha .ms-pr li>p span {
+	color: #999;
+	font-size: 12px;
+	text-decoration: line-through;
+}
+.miaosha .ms-pr .special {
+	float: left;
+}
+.miaosha .ms-pr li a:hover img{
+	margin-top: 0;
+
+}
