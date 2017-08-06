@@ -845,3 +845,153 @@ a {
 	width: 1190px;
 	margin: 0 auto;
 }
+/*-------------------------多快好省--------------------------------*/
+footer {
+	background: #eaeaea;
+}
+.advertise {
+	width: 1190px;
+	margin: 0 auto;
+}
+.advertise .solgan {
+	padding-top: 20px;
+	padding-left: 20px;
+}
+.advertise .solgan li {
+	position: relative;
+	float: left;
+	padding-left: 45px;
+	padding-bottom: 20px;
+	margin-right: 60px;
+}
+.advertise .solgan li p {
+	display: inline-block;
+	font-size: 20px;
+	margin-top: 4px;
+	color: #000;
+}
+.advertise .solgan li h5 {
+	display: inline-block;
+	font-size: 26px;
+	color: #c81623;
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 36px;
+    height: 42px;
+    overflow: hidden;
+    background-image: url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/ico_service.png);
+}
+.solgan li:nth-child(1) h5 {
+    background-position: 0 0;
+}
+.solgan li:nth-child(2) h5 {
+    background-position: 0 127px;
+}
+.solgan li:nth-child(3) h5 {
+    background-position: 0 85px;
+}
+.solgan li:nth-child(4) h5 {
+    background-position: 0 42px;
+}
+/*-----------------服务条款----------------------------------*/
+.tips .box {
+	margin-top: 10px;
+	border-top: 1px solid #dedede;
+	padding: 20px 60px;
+}
+.tips .box>div {
+	float: left;
+	width: 198px;
+}
+.tips .box>div h4 {
+	font-size: 14px;
+	font-weight: 700px;
+	margin-bottom: 10px;
+}
+.tips .box>div li a {
+	display: block;
+    color: #666;
+    height: 20px;
+    line-height: 20px;
+}
+.tips .box>div li a:hover {
+	color: #c81623;
+}
+.tips .box .map {
+	float: right;
+	background: url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/ico_footer.png) no-repeat 0 0;
+	width: 200px;
+    height: 150px;
+}
+.tips .box .map .more {
+	text-align: right;
+}
+.tips .box .map h4 {
+	text-align: center;
+}
+/*----------------关于我们---------------------*/
+.contact {
+	border-top: 1px solid #dedede;
+	width: 1190px;
+	margin: 0 auto;
+	padding: 20px 0 10px 0;
+	text-align: center;
+}
+.contact li {
+	float: left;
+	margin-right: 14px;
+	padding-right: 14px;
+	border-right: 1px solid #ccc;
+}
+.contact li:last-child {
+	border-right: none;
+}
+.contact li a {
+	color: #666;
+}
+.contact li a:hover {
+	color: #c81623;	
+}
+/*------------------备案信息--------------------------*/
+.copyright_info {
+	color: #999;
+	text-align: center;
+	line-height: 22px;
+}
+.copyright_info  a {
+	color: #999;
+}
+.copyright_info .split {
+	margin: 0 10px;
+}
+.copyright_info .info-img {
+	margin-top: 10px;
+}
+.copyright_info .info-img a {
+    display: inline-block;
+    margin: 0 3px;
+    width: 103px;
+    height: 32px;
+    overflow: hidden;
+    background-image: url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/ico_footer.png);
+    line-height: 1000px;
+    color: #666;
+}
+.copyright_info .info-img a:nth-child(1) {
+   background-position: 0 -151px;
+}
+.copyright_info .info-img a:nth-child(2) {
+   background-position: -104px -151px;
+}
+.copyright_info .info-img a:nth-child(3) {
+   background-position: 0 -184px;
+}
+.copyright_info .info-img a:nth-child(4) {
+   background-position: -104px -184px;
+}
+.copyright_info .info-img a:nth-child(5) {
+   background-position: 0 -217px;
+}
+.copyright_info .info-img a:nth-child(6) {
+   background-position:-104px -217px;
