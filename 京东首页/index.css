@@ -735,10 +735,113 @@ a {
 	width: 390px;
 	height: 444px;
 	float: left;
+	background: #fff;
 }
 .recommand .rank .title {
 	background: #e77005;
 }
 .recommand .rank .title>span {
 	background-position: -190px 0;
+}
+.recommand .rank .sub-nav {
+	border-bottom: 1px solid  #e7e7e7;
+}
+.recommand .rank .sub-nav li {
+	float: left;
+	border-right: 1px solid #999;
+	margin: 8px;
+	margin-right: 6px;
+	padding-right: 10px;
+}
+.recommand .rank .sub-nav li a {
+	color: #666;
+	font-size: 14px;
+}
+.recommand .rank .sub-nav li a:hover {
+   color: #c81623;
+}
+.recommand .rank .sub-nav li:last-child {
+    border-right: none;
+    margin-left: 10px;
+}
+.recommand .rank .pr-rank {
+	padding: 9px;
+}
+.recommand .rank .pr-rank li {
+	position: relative;
+	float: left;
+	width: 123px;
+	padding: 12px 0;
+	margin-bottom: 10px;
+	border-right: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+.recommand .rank .pr-rank li p {
+	height: 32px;
+	margin-top: 10px;
+	line-height: 16px;
+	overflow: hidden;
+	word-wrap: break-word;
+	word-break: break-all;
+	text-align: left;
+	padding: 0 11px;
+}
+.recommand .rank .pr-rank li a {
+	display: block;
+	color: #666;
+	text-align: center;
+}
+.recommand .rank .pr-rank li:nth-child(3),
+.recommand .rank .pr-rank li:nth-child(6) {
+	border-right: none;
+}
+.recommand .rank .pr-rank li:nth-child(4),
+.recommand .rank .pr-rank li:nth-child(6),
+.recommand .rank .pr-rank li:nth-child(5) {
+	border-bottom: none;
+}
+.recommand .rank .pr-rank li .toprank {
+	position: absolute;
+    top: 12px;
+    left: 11px;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    font-size: 22px;
+    background-image: url(//misc.360buyimg.com/mtd/pc/index/2.0.0/home/images/sprite_index@1x.png);
+    background-size: 218px 188px;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 40px;
+}
+.recommand .rank .pr-rank li .rank1 {
+    background-position: -104px -40px;
+}
+.recommand .rank .pr-rank li .rank2 {
+	background-position: -50px -100px;
+}
+.recommand .rank .pr-rank li .rank3 {
+	background-position: 0 -100px;
+}
+.recommand .rank .pr-rank li .rank4,
+.recommand .rank .pr-rank li .rank5,
+.recommand .rank .pr-rank li .rank6 {
+	background-position: -100px -100px;
+}
+.recommand .rank .pr-rank li a:hover {
+	color: #c81623;
+}
+/* -------------------底部广告部分--------------------------- */
+.display {
+    height: 100px;
+    background: #e0e0e0;
+    margin: 50px 0;
+}
+.display .show a {
+	float: left;
+	display: block;
+}
+.display .show {
+	width: 1190px;
+	margin: 0 auto;
 }
