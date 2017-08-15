@@ -460,6 +460,8 @@ a {
 	float: left;
 }
 .carousel .main-bottom-imgs>div {
+	width: 390px;
+	overflow: hidden;
 	display: inline-block;
 	margin-top: 8px;
 }
@@ -896,7 +898,8 @@ footer {
 }
 /*-----------------服务条款----------------------------------*/
 .tips .box {
-	margin-top: 10px;
+	width: 1190px;
+	margin: 0 auto;
 	border-top: 1px solid #dedede;
 	padding: 20px 60px;
 }
